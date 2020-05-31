@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 102 Template</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+    <![endif]-->
+    <link rel="stylesheet" href="layui-v2.5.6/layui/css/layui.css"  media="all">
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/getParameter.js"></script>
+    <script src="js/include.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="header"></div>
+
+<form id="register_form" enctype="multipart/form-data" action="registerUserServlet"  method="post" class="layui-form" >
+
+    <div class="row" style="margin-left: 1em; margin-bottom: 1em;">
+            <div class="col-md-1">请选择头像：</div>
+            <div class="col-md-1"><input  id="user_photo" type="file" name="user_photo" /></div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">用户名</label>
+        <div class="layui-input-block">
+            <input type="text" name="username" lay-verify="required" lay-reqtext="用户名是必填项，岂能为空？" placeholder="请输入" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">密码</label>
+        <div class="layui-input-block">
+            <input type="password" name="password" lay-verify="required" lay-reqtext="密码是必填项，岂能为空？" placeholder="请输入" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">QQ</label>
+        <div class="layui-input-block">
+            <input type="text" name="qq" lay-verify="required" lay-reqtext="QQ是必填项，岂能为空？" placeholder="请输入" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">手机号</label>
+            <div style="margin-left: 30px;" class="layui-input-inline">
+                <input type="tel" name="telephone" lay-verify="required|phone" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-inline">
+            <label class="layui-form-label">邮箱</label>
+            <div class="layui-input-inline">
+                <input type="text" name="email" lay-verify="email" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">出生日期</label>
+            <div style="margin-left: 30px;" class="layui-input-inline">
+                <input type="text" name="birthday" id="date" lay-verify="date" placeholder="yyyy-MM-dd" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">请输入验证码</label>
+        <div style="margin-left: 30px;" class="layui-input-inline">
+            <input type="text" name="check_code" lay-verify="required"  placeholder="请输入验证码" autocomplete="off" class="layui-input">
+        </div>
+        <img  src="checkCode" height="42px" alt="" onclick="changeCheckCode(this)">
+        <script type="text/javascript">
+            //图片点击事件
+            function changeCheckCode(img) {
+                img.src="checkCode?"+new Date().getTime();
+            }
+        </script>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">单选框</label>
+        <div class="layui-input-block">
+            <input type="radio" name="sex" value="男" title="男" checked="">
+            <input type="radio" name="sex" value="女" title="女">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button type="submit" class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+</form>
+
+
+<!--    <div class="container">-->
+<!--    <div class="row" style="margin-top: -10em;">-->
+<!--        <div class="col-sm-12 col-xs-12 col-md-12" style="margin-top: 10em;">-->
+<!--            <form  enctype="multipart/form-data" action="registerUserServlet"  method="post"  id="form_register" class="form-group">-->
+<!--                <div class="row" style="margin-bottom: 1em;">-->
+<!--                    <input id="user_photo" type="file" name="user_photo" >-->
+<!--                </div>-->
+<!--                <div class="row">-->
+<!--                    <div class="form-group">-->
+<!--                        <label for="name" class="col-sm-1 control-label">用户名</label>-->
+<!--                        <div class="col-md-2"  style="padding-bottom: 1em;">-->
+<!--                            <input type="text" style="width: 10em;"  name="username" class="form-control" id="name" placeholder="请输入用户名">-->
+<!--                        </div>-->
+<!--                        <div id="username_error_msg" style="line-height: 2.5em;" class="col-md-3">-->
+
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="row">-->
+<!--                    <div class="form-group">-->
+<!--                        <label for="register_password" class="col-sm-1 control-label">密码</label>-->
+<!--                        <div class=" col-md-2"  style="padding-bottom: 1em;">-->
+<!--                            <input type="password" style="width: 10em;" name="password" class="form-control" id="register_password" placeholder="请输入密码">-->
+<!--                        </div>-->
+<!--                        <div id="password_error_msg" style="line-height: 2.5em;" class="col-md-3">-->
+
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="row">-->
+<!--                    <div class="form-group">-->
+<!--                        <label for="telephone" class="col-sm-1 control-label">电话</label>-->
+<!--                        <div class="col-md-2"  style="padding-bottom: 1em;">-->
+<!--                            <input type="tel" style="width: 10em;"  name="telephone" class="form-control" id="telephone" placeholder="请输入电话">-->
+<!--                        </div>-->
+<!--                        <div id="telephone_error_msg" style="line-height: 2.5em;" class="col-md-3">-->
+
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="row">-->
+<!--                    <div class="form-group">-->
+<!--                        <label for="qq" class="col-sm-1 control-label">QQ</label>-->
+<!--                        <div class="col-md-2"  style="padding-bottom: 1em;">-->
+<!--                            <input type="text" style="width: 10em;" name="qq" class="form-control" id="qq" placeholder="QQ">-->
+<!--                        </div>-->
+<!--                        <div id="qq_error_msg" style="line-height: 2.5em;" class="col-md-3">-->
+
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="row">-->
+<!--                    <div class="form-group">-->
+<!--                        <label for="email" class="col-sm-1 control-label">邮箱</label>-->
+<!--                        <div class="col-md-2"  style="padding-bottom: 1em;">-->
+<!--                            <input type="email" style="width: 10em;" name="email" class="form-control" id="email" placeholder="请输入邮箱">-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="row">-->
+<!--                    <div class="form-group">-->
+<!--                        <label for="birthday"  class="col-sm-1 control-label">出生日期</label>-->
+<!--                        <div class="col-md-2"  style="padding-bottom: 1em;">-->
+<!--                            <input type="date" style="width: 10em;" name="birthday" class="form-control" id="birthday" placeholder="年/月/日">-->
+<!--                        </div>-->
+<!--                        <div id="birthday_error_msg" style="line-height: 2.5em;" class="col-md-3">-->
+
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="row">-->
+<!--                    <div class="form-group">-->
+<!--                        <label for="sex" class="col-sm-1 control-label">性别</label>-->
+<!--                        <div class="col-md-2"  style="padding-bottom: 1em;" id="sex">-->
+<!--                            <input type="radio"  name="sex" value="男">男-->
+<!--                            <input type="radio" name="sex" value="女">女-->
+<!--                        </div>-->
+<!--                        <div id="sex_error_msg" style="line-height: 2.5em;" class="col-md-3">-->
+
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="row">-->
+<!--                    <div class="form-group">-->
+<!--                        <label for="register_check_code" class="col-sm-1 control-label">验证码</label>-->
+<!--                        <input type="text" name="check_code" style="width: 10em;margin-bottom: 1em;" class="form-control" id="register_check_code" placeholder="请输入验证码">-->
+<!--                        <img style="margin-left: 7em;"  src="checkCode" height="52px" alt="" onclick="changeCheckCode(this)">-->
+<!--                        <script type="text/javascript">-->
+<!--                            //图片点击事件-->
+<!--                            function changeCheckCode(img) {-->
+<!--                                img.src="checkCode?"+new Date().getTime();-->
+<!--                            }-->
+<!--                        </script>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="row">-->
+<!--                    <div class="form-group">-->
+<!--                        <div class="col-sm-2">-->
+<!--                            <button type="submit" class="btn btn-default">注册</button>-->
+<!--                            <button type="button" class="btn btn-default">重置</button>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </form>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--    <script>-->
+<!--            function checkUsername() {-->
+<!--                //1、获取用户名值-->
+<!--                var username = $("#name").val();-->
+<!--                //3.判断，给出提示信息-->
+<!--                if (username != ""){-->
+<!--                    $("#username_error_msg").html("正确");-->
+<!--                    $("#username_error_msg").css("color","green");-->
+<!--                    return true;-->
+<!--                }-->
+<!--                else {-->
+<!--                   $("#username_error_msg").html("用户名不能为空");-->
+<!--                   $("#username_error_msg").css("color","red");-->
+<!--                    return  false;-->
+<!--                }-->
+<!--            }-->
+
+<!--            //校验密码-->
+
+<!--            function checkPassword() {-->
+<!--                //1、获取密码-->
+<!--                var password = $("#register_password").val();-->
+<!--                //2、定义正则-->
+<!--                var regex_password = /\w{6,20}/;-->
+<!--                //3.判断，给出提示信息-->
+<!--                var flag = regex_password.test(password);-->
+<!--                if (flag){-->
+<!--                    $("#password_error_msg").html("正确");-->
+<!--                    $("#password_error_msg").css("color","green");-->
+<!--                }-->
+<!--                else {-->
+<!--                    $("#password_error_msg").html("密码必须为6位");-->
+<!--                    $("#password_error_msg").css("color","red");-->
+<!--                }-->
+<!--                return flag;-->
+<!--            }-->
+
+<!--            //检验出生日期-->
+<!--            function checkBirthday(){-->
+<!--                //1.获取-->
+<!--                var birthday = $("#birthday").val();-->
+<!--                //3.判断-->
+<!--                var flag = birthday!="";-->
+<!--                if (flag){-->
+<!--                    $("#birthday").css("border","1px solid green");-->
+<!--                }-->
+<!--                else{-->
+<!--                    $("#birthday").css("border","1px solid red");-->
+<!--                }-->
+<!--                return flag;-->
+<!--            }-->
+
+<!--            //校验验证码-->
+<!--            function checkCode(){-->
+<!--                //1.获取-->
+<!--                var check = $("#register_check_code").val();-->
+<!--                //3.判断-->
+<!--                var flag = check!="";-->
+<!--                if (flag){-->
+<!--                    $("#check").css("border","1px solid green");-->
+<!--                }-->
+<!--                else{-->
+<!--                    $("#check").css("border","1px solid red");-->
+<!--                }-->
+<!--                return flag;-->
+<!--            }-->
+
+<!--            //校验手机号-->
+<!--            function checkNumber(){-->
+<!--                //1.获取-->
+<!--                var number = $("#telephone").val();-->
+<!--                //2.定义正则-->
+<!--                var regex_number = /^\d+$/;-->
+<!--                //3.判断-->
+<!--                var flag = regex_number.test(number);-->
+<!--                if (flag){-->
+<!--                    $("#telephone_error_msg").html("正确");-->
+<!--                    $("#telephone_error_msg").css("color","green");-->
+<!--                }-->
+<!--                else{-->
+<!--                    $("#telephone_error_msg").html("请确保输入的电话号码为数字");-->
+<!--                    $("#telephone_error_msg").css("color","red");-->
+<!--                }-->
+<!--                return flag;-->
+<!--            }-->
+<!--            function checkQQ(){-->
+<!--                var qq = $("#qq").val();-->
+<!--                var regex_qq = /^\d+$/;-->
+<!--                var flag = regex_qq.test(qq);-->
+<!--                if(flag){-->
+<!--                    $("#qq_error_msg").html("正确");-->
+<!--                    $("#qq_error_msg").css("color","green");-->
+<!--                }-->
+<!--                else{-->
+<!--                    $("#qq_error_msg").html("请输入数字");-->
+<!--                    $("#qq_error_msg").css("color","red");-->
+<!--                }-->
+<!--                return flag;-->
+<!--            }-->
+<!--    </script>-->
+<script src="layui-v2.5.6/layui/layui.js" charset="utf-8"></script>
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<script>
+
+    layui.use(['form', 'layedit', 'laydate'], function(){
+        var form = layui.form
+            ,layer = layui.layer
+            ,layedit = layui.layedit
+            ,laydate = layui.laydate;
+
+        //日期
+        laydate.render({
+            elem: '#date'
+        });
+        laydate.render({
+            elem: '#date1'
+        });
+
+        //自定义验证规则
+        form.verify({
+            title: function(value){
+                if(value.length < 5){
+                    return '标题至少得5个字符啊';
+                }
+            }
+            ,pass: [
+                /^[\S]{6,12}$/
+                ,'密码必须6到12位，且不能出现空格'
+            ]
+            ,content: function(value){
+                layedit.sync(editIndex);
+            }
+            ,null:function (value) {
+                if(value.length < 0){
+                    return '验证码不能为空';
+                }
+            }
+        });
+
+
+    });
+    layui.use('upload', function(){
+        var upload = layui.upload;
+
+        //执行实例
+        var uploadInst = upload.render({
+            elem: '#test1' //绑定元素
+            ,url: 'getFileServlet' //上传接口
+            ,done: function(res){
+                //上传完毕回调
+            }
+            ,error: function(){
+                //请求异常回调
+                alert("有异常");
+            }
+        });
+    });
+</script>
+<script>
+    $(function () {
+        var msg = getParameter("msg");
+        if (msg == 9891) {
+            alert("该用户名已存在");
+        }
+        if (msg == 8888) {
+            alert("验证码错误")
+        }
+        if (msg == 9090) {
+            alert("注册失败");
+        }
+        $("#register_form").submit(function () {
+            if ($("#user_photo").val() == "") {
+                alert("您尚未选择头像");
+                return false;
+            }
+        })
+    });
+</script>
+</body>
+</html>

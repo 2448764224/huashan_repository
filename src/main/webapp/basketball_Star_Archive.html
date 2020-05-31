@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 102 Template</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+    <![endif]-->
+
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/include.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="header"></div>
+<div class="container" style="background-color: rgba(247,247,247,0.57);height: 500em;">
+    <div class="row" style="margin-top: 2em;">
+        <div class="col-xs-12 col-md-12 col-sm-12">
+            <form action="#" class="form-inline">
+                <span style="font-size: 40px;font-weight: bolder;color: #5bc0de; font-family: 书体坊兰亭体;">这是个百花齐放的时代</span>
+                <input  type="text" style="width:30em;margin-left: 15em;margin-bottom: 1em;" class="center-block form-control " id="search" placeholder="请输入您想要查找的球星">
+                <button type="submit" style="margin-bottom: 1em;"  class="btn btn-default">搜索</button>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-xs-12 col-md-12">
+            <p style="font-size: 18px;font-weight: bolder;color: black">选影视</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-xs-12 col-md-12">
+            <form action="#">
+                <a class="btn btn-default active" href="#" role="button">热门搜索</a>
+                <a class="btn btn-default" href="#" role="button">科比</a>
+                <a class="btn btn-default" href="#" role="button">乔丹</a>
+                <a class="btn btn-default" href="#" role="button">詹姆斯</a>
+                <a class="btn btn-default" href="#" role="button">韦德</a>
+                <a class="btn btn-default" href="#" role="button">欧文</a>
+                <a class="btn btn-default" href="#" role="button">威斯布鲁克</a>
+                <a class="btn btn-default" href="#" role="button">杜兰特</a>
+                <a class="btn btn-default" href="#" role="button">伦纳德</a>
+                <a class="btn btn-default" href="#" role="button">乔治</a>
+                <a class="btn btn-default" href="#" role="button">恩比德</a>
+                <a class="btn btn-default" href="#" role="button">约基奇</a>
+            </form>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 2em;">
+        <div class="col-sm-12 col-xs-12 col-md-8">
+            <form action="#">
+                <a class="btn btn-default active" href="#" role="button">位置</a>
+                <a class="btn btn-default" href="#" role="button">控卫</a>
+                <a class="btn btn-default" href="#" role="button">分卫</a>
+                <a class="btn btn-default" href="#" role="button">小前锋</a>
+                <a class="btn btn-default" href="#" role="button">大前锋</a>
+                <a class="btn btn-default" href="#" role="button">中锋</a>
+            </form>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 2em;">
+        <div class="col-sm-12 col-xs-12 col-md-8">
+            <form action="#">
+                <a class="btn btn-default active" href="#" role="button">年代</a>
+                <a class="btn btn-default" href="#" role="button">10年代</a>
+                <a class="btn btn-default" href="#" role="button">00年代</a>
+                <a class="btn btn-default" href="#" role="button">90年代</a>
+                <a class="btn btn-default" href="#" role="button">80年代</a>
+                <a class="btn btn-default" href="#" role="button">70年代</a>
+                <a class="btn btn-default" href="#" role="button">远古时代</a>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <form action="">
+                <ul style="list-style: none;">
+                    <li style="margin-bottom: 5em;">
+                        <p>
+                            <img style=" float: right; margin-top: 2em;margin-left: 1em;margin-bottom: 1em;" src="img/basketball_Star_Archive/kobe.jpg" width="400px" height="225px"/>
+                        <table style="line-height: 2em; ">
+                            <tr>
+                                <td>球星：</td>
+                                <td id="star">科比-布莱恩特</td>
+                            </tr>
+                            <tr>
+                                <td>生日：</td>
+                                <td id="birthday">1978年8月23日</td>
+                            </tr>
+                            <tr>
+                                <td>国籍：</td>
+                                <td id="nationality">美国</td>
+                            </tr>
+                            <tr>
+                                <td>选秀：</td>
+                                <td id="draft">1996年第1轮第13顺位被黄蜂选中</td>
+                            </tr>
+                            <tr>
+                                <td>荣誉：</td>
+                                <td id="Honor">
+                                    <br>5夺NBA总冠军（2000年-2002年、2009年-2010年）；
+                                    <br>1次常规赛MVP（2007-08赛季）
+                                    <br>2次总决赛MVP（2009年-2010年）
+                                    <br>4次全明星赛MVP（2002年、2007年、2009年与2011年）与鲍勃·佩蒂特并列NBA历史第一；
+                                    <br>共18次入选NBA全明星阵容，
+                                    <br>15次入选NBA最佳阵容，
+                                    <br>12次入选NBA最佳防守阵容
+                                </td>
+                            </tr>
+                            <tr>
+                        </table>
+                        <p>
+                            简介：
+                        <p>科比·布莱恩特（Kobe Bryant），1978年8月23日出生于美国宾夕法尼亚州费城，前美国职业篮球运动员，司职得分后卫/小前锋（锋卫摇摆人），绰号“黑曼巴”/“小飞侠”，是前NBA球员乔·布莱恩特的儿子。 [1]</p>
+                        <p>1996年NBA选秀中，科比在第1轮第13位被夏洛特黄蜂队选中，后被交易至洛杉矶湖人队，整个NBA生涯（1996年-2016年）全部效力于NBA洛杉矶湖人队。</p>
+                        <p>科比的职业生涯随湖人队5夺NBA总冠军（2000年-2002年、2009年-2010年）；荣膺1次常规赛MVP（2007-08赛季），2次总决赛MVP（2009年-2010年），4次全明星赛MVP（2002年、2007年、2009年与2011年），与鲍勃·佩蒂特并列NBA历史第一；共18次入选NBA全明星阵容，15次入选NBA最佳阵容，12次入选NBA最佳防守阵容。 [2]</p>
+                        <p>科比是NBA最好的得分手之一，生涯赢得无数奖项，突破、投篮、罚球、三分球他都驾轻就熟，几乎没有进攻盲区，单场比赛81分的个人纪录就有力地证明了这一点。除了疯狂的得分外，科比的组织能力也很出众，经常担任球队进攻的第一发起人。另外科比还是联盟中最好的防守人之一，贴身防守非常具有压迫性。 [1]</p>
+                        <p>2016年4月14日，科比·布莱恩特在生涯最后一场主场对阵爵士的常规赛后宣布退役。 [1]  2017年12月19日，湖人主场对阵勇士，中场时刻为科比的8号和24号2件球衣举行了退役仪式。 [3]  2018年3月13日，科比凭借和动画师格兰·基恩合作的短片《亲爱的篮球》获得第90届奥斯卡最佳短片奖</p>
+                        </p>
+                        </p>
+                    </li>
+                    <hr>
+                    <li style="margin-bottom: 5em;">
+                        <p>
+                            <img style=" float: right; margin-top: 2em;margin-left: 1em;margin-bottom: 1em;" src="img/basketball_Star_Archive/jorden.jpg" width="268px" height="394px"/>
+                        <table style="line-height: 2em; ">
+                            <tr>
+                                <td>球星：</td>
+                                <td >迈克尔-乔丹</td>
+                            </tr>
+                            <tr>
+                                <td>生日：</td>
+                                <td >1963年2月17日</td>
+                            </tr>
+                            <tr>
+                                <td>国籍：</td>
+                                <td >美国</td>
+                            </tr>
+                            <tr>
+                                <td>选秀：</td>
+                                <td>1984年第1轮第3顺位被公牛选中</td>
+                            </tr>
+                            <tr>
+                                <td>荣誉：</td>
+                                <td>
+                                    <br>6届NBA总冠军、总决赛MVP（1991-93；1996-98）
+                                    <br>5届NBA常规赛MVP（1988；1991-92；1996；1998）
+                                    <br>14届NBA全明星阵容（1985-93；1996-98；2002-03）
+                                    <br>10届NBA最佳阵容一阵（1985-93；1996-98）
+                                    <br>1988年NBA年度最佳防守球员、9届NBA最佳防守阵容一阵
+                                    <br>10届NBA得分王（1986-1993、1995-1997）
+                                </td>
+                            </tr>
+                            <tr>
+                        </table>
+                        <p>
+                            <br>简介：
+                            <br>迈克尔·乔丹（Michael Jordan），1963年2月17日生于美国纽约布鲁克林，前美国职业篮球运动员，司职得分后卫，绰号“飞人”（Air Jordan）   。
+                            <br>迈克尔·乔丹在在1984年NBA选秀中于第1轮第3位被芝加哥公牛队选中，职业生涯曾效力于芝加哥公牛队以及华盛顿奇才队，新秀赛季当选NBA年度最佳新秀。1986-87赛季，乔丹场均得到37.1分，首次获得NBA得分王称号。1991-93赛季，乔丹连续2次荣膺常规赛MVP（1991、1992）和3次总决赛MVP（FMVP）   ，率领芝加哥公牛队3夺NBA总冠军。1993年10月6日因父亲被害而宣布退役，两年后宣布复出。1996年入选NBA50大巨星。1996-98赛季，乔丹荣膺个人职业生涯第10次（共10次）NBA得分王以及第5次（共5次）常规赛MVP，并再次率领公牛队3夺（共6次）NBA总冠军，自己当选共第6次总决赛MVP。1999年1月13日在劳资谈判失败后再次宣布退役，两年后在华盛顿奇才队再次宣布复出。迈克尔·乔丹的职业生涯年年入选NBA全明星阵容（共14次）并3次当选NBA全明星MVP，10次入选NBA最佳阵容一阵，1985年入选NBA最佳阵容二阵，1988年荣膺NBA年度最佳防守球员，9次入选NBA最佳防守阵容一阵，3次荣膺NBA抢断王，2次夺得NBA全明星扣篮大赛冠军，1984年以及1992年夺得奥运会金牌。
+                            <br>2003年4月16日，迈克尔·乔丹在职业生涯最后一场奇才主场对阵76人比赛的赛后正式宣布退役   。作为公认的史上最伟大的篮球运动员，迈克尔·乔丹在2009年9月11日正式入选奈·史密斯篮球名人纪念堂
+                        </p>
+                        </p>
+                    </li>
+                    <hr>
+                </ul>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

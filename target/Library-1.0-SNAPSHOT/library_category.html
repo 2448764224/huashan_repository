@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 102 Template</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+    <![endif]-->
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/getParameter.js"></script>
+    <link rel="stylesheet" href="layui-v2.5.6/layui/css/layui.css" media="all">
+    <script type="text/javascript" src="js/include.js"></script>
+    <style>
+        .bg{
+            position: relative;
+            background-image: url("img/category_bg.jpg");
+            background-size: cover;
+            width: 100%;
+            height: 320px;
+            margin-top: -20px;
+        }
+        .header_search_input{
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            display: inline-block;
+            width: 262px;
+            height: 46px;
+            background: rgba(0, 128, 0, 0.2);
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            padding-left: 49px;
+            color: #FFFFFF;
+        }
+        .header_search_icon{
+            position: absolute;
+            right: 42px;
+            top:37px;
+        }
+    </style>
+</head>
+<body>
+<div id="header"></div>
+<div class="bg">
+        <input id="search_text" type="search" class="header_search_input" required="required" placeholder="搜索图书...">
+        <a id="search" href="javascript:;"><img src="img/search.png" class="header_search_icon" alt=""></a>
+</div>
+<div style="background-color: #f2f2f2" class="layui-fluid">
+    <div class="layui-row">
+        <!--页面左侧菜单-->
+        <div style="margin-left:2em;margin-top: 3em;" class="layui-col-md2">
+            <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                <!-- 侧边导航: <ul class="layui-nav layui-nav-tree layui-nav-side"> -->
+                <li  class="layui-nav-item ">
+                    <a  href="javascript:;">图书检索</a>
+                </li>
+                <li  class="layui-nav-item ">
+                    <a  href="javascript:;">图书种类</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="library_category.html?category=全部">全部</a></dd>
+                        <dd><a href="library_category.html?category=小说">小说</a></dd>
+                        <dd><a href="library_category.html?category=散文">散文</a></dd>
+                        <dd><a href="library_category.html?category=诗歌">诗歌</a></dd>
+                        <dd><a href="library_category.html?category=戏剧">戏剧</a></dd>
+                        <dd><a href="library_category.html?category=悬疑">悬疑</a></dd>
+                        <dd><a href="library_category.html?category=IT">IT</a></dd>
+                        <dd><a href="library_category.html?category=心理">心理</a></dd>
+                        <dd><a href="library_category.html?category=经济">经济</a></dd>
+                        <dd><a href="library_category.html?category=艺术">艺术</a></dd>
+                        <dd><a href="library_category.html?category=生活">生活</a></dd>
+                        <dd><a href="library_category.html?category=旅游">旅游</a></dd>
+                        <dd><a href="library_category.html?category=漫画">漫画</a></dd>
+                        <dd><a href="library_category.html?category=其他">其他</a></dd>
+                    </dl>
+                </li>
+                <li  class="layui-nav-item ">
+                    <a  href="jquerygrjlmoban/Annual_list.html" target="_blank">年度榜单</a>
+                </li>
+                <li  class="layui-nav-item ">
+                    <a  href="javascript:;">人生必读</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">选项1</a></dd>
+                        <dd><a href="javascript:;">选项2</a></dd>
+                        <dd><a href="">跳转</a></dd>
+                    </dl>
+                </li>
+
+            </ul>
+        </div>
+        <!---用来存放图书的html-->
+        <div style="margin-left: 1em; background-color: #f2f2f2" class="layui-col-md7">
+            <div style="margin-top: 2em;" class="layui-row">
+                <div class="col-sm-12 col-xs-12 layui-col-md12">
+                        <p id="count"></p>
+                        <ul style="list-style: none;" id="books">
+                        </ul>
+                </div>
+            </div>
+            <!--用来存放分页的html-->
+            <div class="layui-row" id="page">
+                <div class="layui-col-md-offset1 layui-col-md11">
+                    <div id="demo7"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="layui-v2.5.6/layui/layui.js"></script>
+<script>
+    layui.use('element', function(){
+        var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+
+        //监听导航点击
+        element.on('nav(demo)', function(elem){
+            //console.log(elem)
+            layer.msg(elem.text());
+        });
+    });
+</script>
+<script>
+    layui.use(['rate'], function(){
+        var rate = layui.rate;
+        //只读
+        rate.render({
+            elem: '#test1'
+            ,value: 5
+            ,readonly: true
+        });
+        rate.render({
+            elem: '#test2'
+            ,value: 4
+            ,readonly: true
+        });
+        rate.render({
+            elem: '#test3'
+            ,value: 3
+            ,readonly: true
+        });
+        rate.render({
+            elem: '#test4'
+            ,value: 2
+            ,readonly: true
+        });
+        rate.render({
+            elem: '#test5'
+            ,value: 1
+            ,readonly: true
+        });
+
+    });
+</script>
+<script>
+    $(function () {
+        var text = getParameter("category");
+        var search_text = getParameter("text");
+        if(text == null && search_text == null ){
+            text = "全部";
+        }
+        search_text = window.decodeURI(search_text);
+        text = window.decodeURI(text);
+        $("#search").click(function () {
+            var search_text = $("#search_text").val();
+            location.href="http://localhost/library/library_category.html?text="+search_text;
+        });
+        if(search_text == "null"){
+            $.post("getAllBooksCountServlet",{category: text},function (data) {
+                var i = parseInt(data.errorMsg);
+                $("#count").html("共搜查到"+i+"个结果");
+                layui.use(['laypage', 'layer'], function(){
+                    var laypage = layui.laypage
+                        ,layer = layui.layer;
+                    //自定义首页、尾页、上一页、下一页文本
+                    laypage.render({
+                        elem: 'demo7'
+                        ,count: i
+                        ,first: '1' //首页名称
+                        ,limit: 5 //每次分页展示个数
+                        ,last: '最后一页'
+                        ,prev: '<em>←</em>' //点击上一页或下一页时的标志
+                        ,next: '<em>→</em>'
+                        ,jump: function (obj,first) {  //这个是回调函数
+                            var curr = obj.curr;
+                            var limit = obj.limit;
+                            if( curr == Math.floor(((i/limit)+1)) ){
+                                var new_limit  = i - (curr-1)*5;
+                                showBooks(curr,new_limit,text);
+                            }else {
+                                showBooks(curr,limit,text);
+                            }
+                        }
+                    });
+                });
+            });
+        }else {
+           $.post("getAllBooksCountBySearchServlet",{text:search_text},function (data) {
+               var i = parseInt(data.errorMsg);
+               $("#count").html("共搜查到"+i+"个结果");
+               layui.use(['laypage', 'layer'], function(){
+                   var laypage = layui.laypage
+                       ,layer = layui.layer;
+                   //自定义首页、尾页、上一页、下一页文本
+                   laypage.render({
+                       elem: 'demo7'
+                       ,count: i
+                       ,first: '1'
+                       ,limit: 5
+                       ,last: '最后一页'
+                       ,prev: '<em>←</em>'
+                       ,next: '<em>→</em>'
+                       ,jump: function (obj,first) {
+                           var curr = obj.curr;
+                           var limit = obj.limit;
+                           if( curr == Math.floor(((i/limit)+1)) ){
+                               limit  = i - (curr-1)*5;
+                           }
+                           $.post("findBookBySearchServlet",{text:search_text,limit:limit,currentPage:curr},function (data) {
+                               if(data.length == 0){
+                                   $("#books").html("暂无数据");
+                               }else {
+                                   var lis = "";
+                                   for(var i = 0 ; i < data.length; i++){
+                                       if(data[i].introduce == null){
+                                           data[i].introduce = "无";
+                                       }
+                                       lis +='<div style=" margin-top: 2em; margin-right: 2em;" class="layui-col-md12">\n' +
+                                           '                                <div class="layui-card">\n' +
+                                           '                                    <div class="layui-card-header">'+data[i].name+'</div>\n' +
+                                           '                                    <div class="layui-card-body">\n' +
+                                           '                                        <div class="layui-row">\n' +
+                                           '                                            <div  class="layui-col-md3 ">\n' +
+                                           '                                                    <div class="layui-card-body">\n' +
+                                           '                                                        <img width="170px" height="189px" src="'+data[i].images+'" alt="">\n' +
+                                           '                                                    </div>\n' +
+                                           '                                            </div>\n' +
+                                           '                                            <div class="layui-col-md8">\n' +
+                                           '                                                    <br>\n' +
+                                           '                                                    <p>&nbsp;&nbsp; '+data[i].author+' / '+data[i].price+' 元/ '+data[i].publishing_house+' / '+data[i].publication_year+'</p>\n' +
+                                           '                                                    <br>\n' +
+                                           '                                                    <p>&nbsp;&nbsp;一句话简介：'+data[i].introduce+'</p>\n' +
+                                           '                                                    <br>\n' +
+                                           '                                                    <a href="book.html?name='+data[i].name+'" style="text-decoration: none; margin-bottom: 1em;margin-left: 1em;" class="layui-btn layui-btn-normal">查看更多</a>\n' +
+                                           '                                            </div>\n' +
+                                           '                                        </div>\n' +
+                                           '                                    </div>\n' +
+                                           '                                </div>\n' +
+                                           '                            </div>'
+                                   }
+                                   $("#books").html(lis);
+                               }
+                           });
+                       }
+                   });
+               });
+
+           })
+        }
+        function showBooks(currentPage,limit,text){
+            $.post("getAllBooksServlet",{currentPage:currentPage,limit:limit,text:text},function (data) {
+                if(data== "[]"){
+                    $("#books").html("暂无数据");
+                }else {
+                    var lis = "";
+                    for(var i = 0 ; i < limit; i++){
+                        if(data[i].introduce == null){
+                            data[i].introduce = "无";
+                        }
+                        lis +='<div style=" margin-top: 2em; margin-right: 2em;" class="layui-col-md12">\n' +
+                            '                                <div class="layui-card">\n' +
+                            '                                    <div class="layui-card-header">'+data[i].name+'</div>\n' +
+                            '                                    <div class="layui-card-body">\n' +
+                            '                                        <div class="layui-row">\n' +
+                            '                                            <div  class="layui-col-md3 ">\n' +
+                            '                                                    <div class="layui-card-body">\n' +
+                            '                                                        <img width="170px" height="189px" src="'+data[i].images+'" alt="">\n' +
+                            '                                                    </div>\n' +
+                            '                                            </div>\n' +
+                            '                                            <div class="layui-col-md8">\n' +
+                            '                                                    <br>\n' +
+                            '                                                    <p>&nbsp;&nbsp; '+data[i].author+' / '+data[i].price+' 元/ '+data[i].publishing_house+' / '+data[i].publication_year+'</p>\n' +
+                            '                                                    <br>\n' +
+                            '                                                    <p>&nbsp;&nbsp;一句话简介：'+data[i].introduce+'</p>\n' +
+                            '                                                    <br>\n' +
+                            '                                                    <a href="book.html?name='+data[i].name+'" style="text-decoration: none; margin-bottom: 1em;margin-left: 1em;" class="layui-btn layui-btn-normal">查看更多</a>\n' +
+                            '                                            </div>\n' +
+                            '                                        </div>\n' +
+                            '                                    </div>\n' +
+                            '                                </div>\n' +
+                            '                            </div>'
+                    }
+                    $("#books").html(lis);
+                }
+            });
+        }
+    });
+</script>
+</body>
+</html>

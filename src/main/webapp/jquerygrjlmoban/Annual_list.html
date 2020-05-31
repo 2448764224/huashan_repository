@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>年度榜单</title>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://www.jq22.com/jquery/bootstrap-3.3.4.css">
+    <link rel="stylesheet" href="https://www.jq22.com/jquery/font-awesome.4.6.0.css">
+    <link rel="stylesheet" href="http://i.gtimg.cn/vipstyle/frozenui/2.0.0/css/frozen.css">
+    <link rel="stylesheet" href="../layui-v2.5.6/layui/css/layui.css"  media="all">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/aos.css" rel="stylesheet">
+    <!-- main style -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/getParameter.js"></script>
+    <link rel="stylesheet" href="../layui-v2.5.6/layui/css/layui.css" media="all">
+    <script type="text/javascript" src="../js/include.js"></script>
+    <style>
+        .most_popular_jiaobiao{
+            position: absolute;
+            background-color: rgba(206,155,78,.9);
+            width: 24px;
+            border-radius: 6px 0 30px 0;
+        }
+        .footer{
+            background-color:#393D49;;
+            width: 100%;
+            height: 100px;
+        }
+        .footer p {
+            line-height: 75px;
+        }
+    </style>
+</head>
+<body>
+    <!--六个榜单页面-->
+    <div class="section home"  data-stellar-background-ratio="0.5">
+        <div  class="container-fluid">
+            <p align="center" style="padding-top: 70px; font-size:50px; color: white;">年度最受关注图书</p>
+             <div id="most_concern_book_no_1" style="margin-top: 3em;" class="row">
+
+             </div>
+             <div  id="most_concern_book_no_2" style="margin-top: 1em;" class="row">
+
+             </div>
+        </div>
+    </div>
+    <div class="section home1"  data-stellar-background-ratio="0.5">
+        <div class="container-fluid">
+            <p align="center" style="padding-top: 70px; font-size:50px; color: white;">年度最受好评</p>
+            <div class="disply-table">
+                <div class="table-cell" data-aos="fade-up" data-aos-delay="0">
+
+                </div>
+                <div id="most_popular_book_no_1" style="margin-top: 3em;" class="row">
+                </div>
+                <div id="most_popular_book_no_2" style="margin-top: 1em;" class="row">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section home2"  data-stellar-background-ratio="0.5">
+        <div class="container-fluid">
+            <p align="center" style="padding-top: 70px; font-size:50px; color: white;">外国十大小说（非虚构类）</p>
+            <div class="disply-table">
+                <div class="table-cell" data-aos="fade-up" data-aos-delay="0">
+
+                </div>
+                <div id="foreign_real_no_1" style="margin-top: 3em;" class="row">
+
+                </div>
+                <div id="foreign_real_no_2" style="margin-top: 1em;" class="row">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section home3"  data-stellar-background-ratio="0.5">
+        <div class="container-fluid">
+            <p align="center" style="padding-top: 70px; font-size:50px; color: white;">外国十大小说（虚构类）</p>
+            <div class="disply-table">
+                <div class="table-cell" data-aos="fade-up" data-aos-delay="0">
+
+                </div>
+                <div id="foreign_fiction_no_1" style="margin-top: 3em;" class="row">
+
+                </div>
+                <div id="foreign_fiction_no_2" style="margin-top: 1em;" class="row">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section home4"  data-stellar-background-ratio="0.5">
+        <div class="container-fluid">
+            <p align="center" style="padding-top: 70px; font-size:50px; color: white;">中国十大小说（非虚构类）</p>
+            <div class="disply-table">
+                <div class="table-cell" data-aos="fade-up" data-aos-delay="0">
+
+                </div>
+                <div id="native_real_no_1" style="margin-top: 3em;" class="row">
+
+                </div>
+                <div id="native_real_no_2" style="margin-top: 1em;" class="row">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section home5"  data-stellar-background-ratio="0.5">
+        <div class="container-fluid">
+            <p align="center" style="padding-top: 70px; font-size:50px; color: white;">中国十大小说（虚构类）</p>
+            <div class="disply-table">
+                <div class="table-cell" data-aos="fade-up" data-aos-delay="0">
+
+                </div>
+                <div id="native_fiction_no_1" style="margin-top: 3em;" class="row">
+
+                </div>
+                <div id="native_fiction_no_2" style="margin-top: 1em;" class="row">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <img src="../img/jack.png" width="88px" style="float: left;margin-left: 2em;margin-top: 1em;" height="75px"  alt=""/>
+        <p align="right">
+            &copy;平昌好运来科技有限公司  联系我们：11111111
+        </p>
+    </div>
+    <div style="height: 45px;background-color: #fbe9d9;"></div>
+</body>
+
+<script src="../layui-v2.5.6/layui/layui.js" charset="utf-8"></script>
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<script>
+    $(function () {
+        $.post("../findBookListServlet",{text:"most_host"},function (data) {
+            if(data == "[]"){
+                alert("没有数据");
+            }else{
+                var row1_lis ='                <div style="position: relative;" class="col-md-2 col-md-offset-1">\n' +
+                    '                    <div class="most_popular_jiaobiao">\n' +
+                    '                        <div style="padding-left: 5px;">1</div>\n' +
+                    '                    </div>\n' +
+                    '                     <a href="../book.html?name='+data[0].name+'" class="thumbnail">\n' +
+                    '                         <img width="475px" height="255px" src="../'+data[0].images+'" alt="...">\n' +
+                    '                     </a>\n' +
+                    '                </div>\n' +
+                    '                 <div class="col-md-7">\n' +
+                    '                     <div class="col-md-7">\n' +
+                    '                         <span style="font-size: 30px;color: #008000;font-weight: bold;">No.1</span>\n' +
+                    '                         <p style="margin-top: 1em; color: white;font-size: 40px;font-family: \'Glyphicons Halflings\'">'+data[0].name+'</p>\n' +
+                    '                         <br>\n' +
+                    '                         <p style="color: white;font-size: 18px;font-family: \'Glyphicons Halflings\'">'+data[0].author+'</p>\n' +
+                    '                         <p style="margin-top: 2em; color: #828d8d;font-size: 14px;">'+data[0].introduce+'\n' +
+                    '                         </p>\n' +
+                    '                     </div>\n' +
+                    '                     <div style="margin-left: 2em;" class="col-md-3 ">\n' +
+                    '                         <p align="center" style="color: #FF5722; margin-top: 4em;font-size: 25px;">'+data[0].grade+'分</p>\n' +
+                    '                         <div style="margin-left: 2em;" id="test1"></div>\n' +
+                    '                         <p style="color: white" align="center">\n' +
+                    '                             已有'+data[0].commit_nums+'人评分\n' +
+                    '                         </p>\n' +
+                    '                     </div>\n' +
+                    '                 </div>';
+                $("#most_concern_book_no_1").html(row1_lis);
+
+
+                var row2_lis = "";
+                for(var i = 1 ; i<data.length;i++){
+                    if(i==1){
+                        row2_lis +=' <div style="position: relative;" class="col-md-1 layui-col-md-offset1">\n' +
+                            '                     <div class="most_popular_jiaobiao">\n' +
+                            '                         <div style="padding-left: 5px;">'+(i+1)+'</div>\n' +
+                            '                     </div>\n' +
+                            '                     <a href="../book.html?name='+data[i].name+'" class="thumbnail">\n' +
+                            '                         <img width="273px" height="225px" src="../'+data[i].images+'" alt="...">\n' +
+                            '                     </a>\n' +
+                            '                     <p style="color: white;font-size: 12px;">'+data[i].name+'<strong style="color: #ff9725">'+data[i].grade+'</strong></p>\n' +
+                            '                 </div>';
+                    }else {
+                        row2_lis +=' <div style="position: relative;" class="col-md-1 ">\n' +
+                            '                     <div class="most_popular_jiaobiao">\n' +
+                            '                         <div style="padding-left: 5px;">'+(i+1)+'</div>\n' +
+                            '                     </div>\n' +
+                            '                     <a href="../book.html?name='+data[i].name+'" class="thumbnail">\n' +
+                            '                         <img width="273px" height="225px" src="../'+data[i].images+'" alt="...">\n' +
+                            '                     </a>\n' +
+                            '                     <p style="color: white;font-size: 12px;">'+data[i].name+'<strong style="color: #ff9725">'+data[i].grade+'</strong></p>\n' +
+                            '                 </div>';
+                    }
+                }
+                $("#most_concern_book_no_2").html(row2_lis);
+                    layui.use(['rate'], function(){
+                    var rate = layui.rate;
+                    //显示文字
+                    rate.render({
+                        elem: '#test1'
+                        ,value: data[0].grade/2
+                        ,readonly: true
+                        ,half:true
+                    });
+                });
+            }
+        });
+        $.post("../findBookListServlet",{text:"most_popular"},function (data) {
+            if(data == "[]"){
+                alert("没有数据");
+            }else{
+                var row1_lis ='                <div style="position: relative;" class="col-md-2 col-md-offset-1">\n' +
+                    '                    <div class="most_popular_jiaobiao">\n' +
+                    '                        <div style="padding-left: 5px;">1</div>\n' +
+                    '                    </div>\n' +
+                    '                     <a href="../book.html?name='+data[0].name+'" class="thumbnail">\n' +
+                    '                         <img width="475px" height="255px" src="../'+data[0].images+'" alt="...">\n' +
+                    '                     </a>\n' +
+                    '                </div>\n' +
+                    '                 <div class="col-md-7">\n' +
+                    '                     <div class="col-md-7">\n' +
+                    '                         <span style="font-size: 30px;color: #008000;font-weight: bold;">No.1</span>\n' +
+                    '                         <p style="margin-top: 1em; color: white;font-size: 40px;font-family: \'Glyphicons Halflings\'">'+data[0].name+'</p>\n' +
+                    '                         <br>\n' +
+                    '                         <p style="color: white;font-size: 18px;font-family: \'Glyphicons Halflings\'">'+data[0].author+'</p>\n' +
+                    '                         <p style="margin-top: 2em; color: #f6f6f6;font-size: 14px;">'+data[0].introduce+'\n' +
+                    '                         </p>\n' +
+                    '                     </div>\n' +
+                    '                     <div style="margin-left: 2em;" class="col-md-3 ">\n' +
+                    '                         <p align="center" style="color: #FF5722; margin-top: 4em;font-size: 25px;">'+data[0].grade+'分</p>\n' +
+                    '                         <div style="margin-left: 2em;" id="test2"></div>\n' +
+                    '                         <p style="color: white" align="center">\n' +
+                    '                             已有'+data[0].commit_nums+'人评分\n' +
+                    '                         </p>\n' +
+                    '                     </div>\n' +
+                    '                 </div>';
+                $("#most_popular_book_no_1").html(row1_lis);
+
+
+                var row2_lis = "";
+                for(var i = 1 ; i<data.length;i++){
+                    if(i==1){
+                        row2_lis +=' <div style="position: relative;" class="col-md-1 layui-col-md-offset1">\n' +
+                            '                     <div class="most_popular_jiaobiao">\n' +
+                            '                         <div style="padding-left: 5px;">'+(i+1)+'</div>\n' +
+                            '                     </div>\n' +
+                            '                     <a href="../book.html?name='+data[i].name+'" class="thumbnail">\n' +
+                            '                         <img width="273px" height="225px" src="../'+data[i].images+'" alt="...">\n' +
+                            '                     </a>\n' +
+                            '                     <p style="color: white;font-size: 12px;">'+data[i].name+'<strong style="color: #ff9725">'+data[i].grade+'</strong></p>\n' +
+                            '                 </div>';
+                    }else {
+                        row2_lis +=' <div style="position: relative;" class="col-md-1 ">\n' +
+                            '                     <div class="most_popular_jiaobiao">\n' +
+                            '                         <div style="padding-left: 5px;">'+(i+1)+'</div>\n' +
+                            '                     </div>\n' +
+                            '                     <a href="../book.html?name='+data[i].name+'" class="thumbnail">\n' +
+                            '                         <img width="273px" height="225px" src="../'+data[i].images+'" alt="...">\n' +
+                            '                     </a>\n' +
+                            '                     <p style="color: white;font-size: 12px;">'+data[i].name+'<strong style="color: #ff9725">'+data[i].grade+'</strong></p>\n' +
+                            '                 </div>';
+                    }
+                }
+                $("#most_popular_book_no_2").html(row2_lis);
+                layui.use(['rate'], function(){
+                    var rate = layui.rate;
+                    //显示文字
+                    rate.render({
+                        elem: '#test2'
+                        ,value: data[0].grade/2
+                        ,readonly: true
+                        ,half:true
+                    });
+                });
+            }
+        });
+        $.post("../findBookListServlet",{text:"foreign_real"},function (data) {
+            if(data == "[]"){
+                alert("没有数据");
+            }else{
+                var row1_lis ='                <div style="position: relative;" class="col-md-2 col-md-offset-1">\n' +
+                    '                    <div class="most_popular_jiaobiao">\n' +
+                    '                        <div style="padding-left: 5px;">1</div>\n' +
+                    '                    </div>\n' +
+                    '                     <a href="../book.html?name='+data[0].name+'" class="thumbnail">\n' +
+                    '                         <img width="475px" height="255px" src="../'+data[0].images+'" alt="...">\n' +
+                    '                     </a>\n' +
+                    '                </div>\n' +
+                    '                 <div class="col-md-7">\n' +
+                    '                     <div class="col-md-7">\n' +
+                    '                         <span style="font-size: 30px;color: #008000;font-weight: bold;">No.1</span>\n' +
+                    '                         <p style="margin-top: 1em; color: white;font-size: 40px;font-family: \'Glyphicons Halflings\'">'+data[0].name+'</p>\n' +
+                    '                         <br>\n' +
+                    '                         <p style="color: white;font-size: 18px;font-family: \'Glyphicons Halflings\'">'+data[0].author+'</p>\n' +
+                    '                         <p style="margin-top: 2em; color: #f6f6f6;font-size: 14px;">'+data[0].introduce+'\n' +
+                    '                         </p>\n' +
+                    '                     </div>\n' +
+                    '                     <div style="margin-left: 2em;" class="col-md-3 ">\n' +
+                    '                         <p align="center" style="color: #FF5722; margin-top: 4em;font-size: 25px;">'+data[0].grade+'分</p>\n' +
+                    '                         <div style="margin-left: 2em;" id="test3"></div>\n' +
+                    '                         <p style="color: white" align="center">\n' +
+                    '                             已有'+data[0].commit_nums+'人评分\n' +
+                    '                         </p>\n' +
+                    '                     </div>\n' +
+                    '                 </div>';
+                $("#foreign_real_no_1").html(row1_lis);
+
+
+                var row2_lis = "";
+                for(var i = 1 ; i<data.length;i++){
+                    if(i==1){
+                        row2_lis +=' <div style="position: relative;" class="col-md-1 layui-col-md-offset1">\n' +
+                            '                     <div class="most_popular_jiaobiao">\n' +
+                            '                         <div style="padding-left: 5px;">'+(i+1)+'</div>\n' +
+                            '                     </div>\n' +
+                            '                     <a href="../book.html?name='+data[i].name+'" class="thumbnail">\n' +
+                            '                         <img width="273px" height="225px" src="../'+data[i].images+'" alt="...">\n' +
+                            '                     </a>\n' +
+                            '                     <p style="color: white;font-size: 12px;">'+data[i].name+'<strong style="color: #ff9725">'+data[i].grade+'</strong></p>\n' +
+                            '                 </div>';
+                    }else {
+                        row2_lis +=' <div style="position: relative;" class="col-md-1 ">\n' +
+                            '                     <div class="most_popular_jiaobiao">\n' +
+                            '                         <div style="padding-left: 5px;">'+(i+1)+'</div>\n' +
+                            '                     </div>\n' +
+                            '                     <a href="../book.html?name='+data[i].name+'" class="thumbnail">\n' +
+                            '                         <img width="273px" height="225px" src="../'+data[i].images+'" alt="...">\n' +
+                            '                     </a>\n' +
+                            '                     <p style="color: white;font-size: 12px;">'+data[i].name+'<strong style="color: #ff9725">'+data[i].grade+'</strong></p>\n' +
+                            '                 </div>';
+                    }
+                }
+                $("#foreign_real_no_2").html(row2_lis);
+                layui.use(['rate'], function(){
+                    var rate = layui.rate;
+                    //显示文字
+                    rate.render({
+                        elem: '#test3'
+                        ,value: data[0].grade/2
+                        ,readonly: true
+                        ,half:true
+                    });
+                });
+            }
+        });
+        $.post("../findBookListServlet",{text:"most_popular"},function (data) {
+            if(data == "[]"){
+                alert("没有数据");
+            }else{
+                var row1_lis ='                <div style="position: relative;" class="col-md-2 col-md-offset-1">\n' +
+                    '                    <div class="most_popular_jiaobiao">\n' +
+                    '                        <div style="padding-left: 5px;">1</div>\n' +
+                    '                    </div>\n' +
+                    '                     <a href="../book.html?name='+data[0].name+'" class="thumbnail">\n' +
+                    '                         <img width="475px" height="255px" src="../'+data[0].images+'" alt="...">\n' +
+                    '                     </a>\n' +
+                    '                </div>\n' +
+                    '                 <div class="col-md-7">\n' +
+                    '                     <div class="col-md-7">\n' +
+                    '                         <span style="font-size: 30px;color: #008000;font-weight: bold;">No.1</span>\n' +
+                    '                         <p style="margin-top: 1em; color: white;font-size: 40px;font-family: \'Glyphicons Halflings\'">'+data[0].name+'</p>\n' +
+                    '                         <br>\n' +
+                    '                         <p style="color: white;font-size: 18px;font-family: \'Glyphicons Halflings\'">'+data[0].author+'</p>\n' +
+                    '                         <p style="margin-top: 2em; color: #f6f6f6;font-size: 14px;">'+data[0].introduce+'\n' +
+                    '                         </p>\n' +
+                    '                     </div>\n' +
+                    '                     <div style="margin-left: 2em;" class="col-md-3 ">\n' +
+                    '                         <p align="center" style="color: #FF5722; margin-top: 4em;font-size: 25px;">'+data[0].grade+'分</p>\n' +
+                    '                         <div style="margin-left: 2em;" id="test4"></div>\n' +
+                    '                         <p style="color: white" align="center">\n' +
+                    '                             已有'+data[0].commit_nums+'人评分\n' +
+                    '                         </p>\n' +
+                    '                     </div>\n' +
+                    '                 </div>';
+                $("#foreign_fiction_no_1").html(row1_lis);
+
+
+                var row2_lis = "";
+                for(var i = 1 ; i<data.length;i++){
+                    if(i==1){
+                        row2_lis +=' <div style="position: relative;" class="col-md-1 layui-col-md-offset1">\n' +
+                            '                     <div class="most_popular_jiaobiao">\n' +
+                            '                         <div style="padding-left: 5px;">'+(i+1)+'</div>\n' +
+                            '                     </div>\n' +
+                            '                     <a href="../book.html?name='+data[i].name+'" class="thumbnail">\n' +
+                            '                         <img width="273px" height="225px" src="../'+data[i].images+'" alt="...">\n' +
+                            '                     </a>\n' +
+                            '                     <p style="color: white;font-size: 12px;">'+data[i].name+'<strong style="color: #ff9725">'+data[i].grade+'</strong></p>\n' +
+                            '                 </div>';
+                    }else {
+                        row2_lis +=' <div style="position: relative;" class="col-md-1 ">\n' +
+                            '                     <div class="most_popular_jiaobiao">\n' +
+                            '                         <div style="padding-left: 5px;">'+(i+1)+'</div>\n' +
+                            '                     </div>\n' +
+                            '                     <a href="../book.html?name='+data[i].name+'" class="thumbnail">\n' +
+                            '                         <img width="273px" height="225px" src="../'+data[i].images+'" alt="...">\n' +
+                            '                     </a>\n' +
+                            '                     <p style="color: white;font-size: 12px;">'+data[i].name+'<strong style="color: #ff9725">'+data[i].grade+'</strong></p>\n' +
+                            '                 </div>';
+                    }
+                }
+                $("#foreign_fiction_no_2").html(row2_lis);
+                layui.use(['rate'], function(){
+                    var rate = layui.rate;
+                    //显示文字
+                    rate.render({
+                        elem: '#test4'
+                        ,value: data[0].grade/2
+                        ,readonly: true
+                        ,half:true
+                    });
+                });
+            }
+        });
+        $.post("../findBookListServlet",{text:"most_popular"},function (data) {
+            if(data == "[]"){
+                alert("没有数据");
+            }else{
+                var row1_lis ='                <div style="position: relative;" class="col-md-2 col-md-offset-1">\n' +
+                    '                    <div class="most_popular_jiaobiao">\n' +
+                    '                        <div style="padding-left: 5px;">1</div>\n' +
+                    '                    </div>\n' +
+                    '                     <a href="../book.html?name='+data[0].name+'" class="thumbnail">\n' +
+                    '                         <img width="475px" height="255px" src="../'+data[0].images+'" alt="...">\n' +
+                    '                     </a>\n' +
+                    '                </div>\n' +
+                    '                 <div class="col-md-7">\n' +
+                    '                     <div class="col-md-7">\n' +
+                    '                         <span style="font-size: 30px;color: #008000;font-weight: bold;">No.1</span>\n' +
+                    '                         <p style="margin-top: 1em; color: white;font-size: 40px;font-family: \'Glyphicons Halflings\'">'+data[0].name+'</p>\n' +
+                    '                         <br>\n' +
+                    '                         <p style="color: white;font-size: 18px;font-family: \'Glyphicons Halflings\'">'+data[0].author+'</p>\n' +
+                    '                         <p style="margin-top: 2em; color: #f6f6f6;font-size: 14px;">'+data[0].introduce+'\n' +
+                    '                         </p>\n' +
+                    '                     </div>\n' +
+                    '                     <div style="margin-left: 2em;" class="col-md-3 ">\n' +
+                    '                         <p align="center" style="color: #FF5722; margin-top: 4em;font-size: 25px;">'+data[0].grade+'分</p>\n' +
+                    '                         <div style="margin-left: 2em;" id="test5"></div>\n' +
+                    '                         <p style="color: white" align="center">\n' +
+                    '                             已有'+data[0].commit_nums+'人评分\n' +
+                    '                         </p>\n' +
+                    '                     </div>\n' +
+                    '                 </div>';
+                $("#native_real_no_1").html(row1_lis);
+
+
+                var row2_lis = "";
+                for(var i = 1 ; i<data.length;i++){
+                    if(i==1){
+                        row2_lis +=' <div style="position: relative;" class="col-md-1 layui-col-md-offset1">\n' +
+                            '                     <div class="most_popular_jiaobiao">\n' +
+                            '                         <div style="padding-left: 5px;">'+(i+1)+'</div>\n' +
+                            '                     </div>\n' +
+                            '                     <a href="../book.html?name='+data[i].name+'" class="thumbnail">\n' +
+                            '                         <img width="273px" height="225px" src="../'+data[i].images+'" alt="...">\n' +
+                            '                     </a>\n' +
+                            '                     <p style="color: white;font-size: 12px;">'+data[i].name+'<strong style="color: #ff9725">'+data[i].grade+'</strong></p>\n' +
+                            '                 </div>';
+                    }else {
+                        row2_lis +=' <div style="position: relative;" class="col-md-1 ">\n' +
+                            '                     <div class="most_popular_jiaobiao">\n' +
+                            '                         <div style="padding-left: 5px;">'+(i+1)+'</div>\n' +
+                            '                     </div>\n' +
+                            '                     <a href="../book.html?name='+data[i].name+'" class="thumbnail">\n' +
+                            '                         <img width="273px" height="225px" src="../'+data[i].images+'" alt="...">\n' +
+                            '                     </a>\n' +
+                            '                     <p style="color: white;font-size: 12px;">'+data[i].name+'<strong style="color: #ff9725">'+data[i].grade+'</strong></p>\n' +
+                            '                 </div>';
+                    }
+                }
+                $("#native_real_no_2").html(row2_lis);
+                layui.use(['rate'], function(){
+                    var rate = layui.rate;
+                    //显示文字
+                    rate.render({
+                        elem: '#test5'
+                        ,value: data[0].grade/2
+                        ,readonly: true
+                        ,half:true
+                    });
+                });
+            }
+        });
+        $.post("../findBookListServlet",{text:"most_popular"},function (data) {
+            if(data == "[]"){
+                alert("没有数据");
+            }else{
+                var row1_lis ='                <div style="position: relative;" class="col-md-2 col-md-offset-1">\n' +
+                    '                    <div class="most_popular_jiaobiao">\n' +
+                    '                        <div style="padding-left: 5px;">1</div>\n' +
+                    '                    </div>\n' +
+                    '                     <a href="../book.html?name='+data[0].name+'" class="thumbnail">\n' +
+                    '                         <img width="475px" height="255px" src="../'+data[0].images+'" alt="...">\n' +
+                    '                     </a>\n' +
+                    '                </div>\n' +
+                    '                 <div class="col-md-7">\n' +
+                    '                     <div class="col-md-7">\n' +
+                    '                         <span style="font-size: 30px;color: #008000;font-weight: bold;">No.1</span>\n' +
+                    '                         <p style="margin-top: 1em; color: white;font-size: 40px;font-family: \'Glyphicons Halflings\'">'+data[0].name+'</p>\n' +
+                    '                         <br>\n' +
+                    '                         <p style="color: white;font-size: 18px;font-family: \'Glyphicons Halflings\'">'+data[0].author+'</p>\n' +
+                    '                         <p style="margin-top: 2em; color: #f6f6f6;font-size: 14px;">'+data[0].introduce+'\n' +
+                    '                         </p>\n' +
+                    '                     </div>\n' +
+                    '                     <div style="margin-left: 2em;" class="col-md-3 ">\n' +
+                    '                         <p align="center" style="color: #FF5722; margin-top: 4em;font-size: 25px;">'+data[0].grade+'分</p>\n' +
+                    '                         <div style="margin-left: 2em;" id="test6"></div>\n' +
+                    '                         <p style="color: white" align="center">\n' +
+                    '                             已有'+data[0].commit_nums+'人评分\n' +
+                    '                         </p>\n' +
+                    '                     </div>\n' +
+                    '                 </div>';
+                $("#native_fiction_no_1").html(row1_lis);
+
+
+                var row2_lis = "";
+                for(var i = 1 ; i<data.length;i++){
+                    if(i==1){
+                        row2_lis +=' <div style="position: relative;" class="col-md-1 layui-col-md-offset1">\n' +
+                            '                     <div class="most_popular_jiaobiao">\n' +
+                            '                         <div style="padding-left: 5px;">'+(i+1)+'</div>\n' +
+                            '                     </div>\n' +
+                            '                     <a href="../book.html?name='+data[i].name+'" class="thumbnail">\n' +
+                            '                         <img width="273px" height="225px" src="../'+data[i].images+'" alt="...">\n' +
+                            '                     </a>\n' +
+                            '                     <p style="color: white;font-size: 12px;">'+data[i].name+'<strong style="color: #ff9725">'+data[i].grade+'</strong></p>\n' +
+                            '                 </div>';
+                    }else {
+                        row2_lis +=' <div style="position: relative;" class="col-md-1 ">\n' +
+                            '                     <div class="most_popular_jiaobiao">\n' +
+                            '                         <div style="padding-left: 5px;">'+(i+1)+'</div>\n' +
+                            '                     </div>\n' +
+                            '                     <a href="../book.html?name='+data[i].name+'" class="thumbnail">\n' +
+                            '                         <img width="273px" height="225px" src="../'+data[i].images+'" alt="...">\n' +
+                            '                     </a>\n' +
+                            '                     <p style="color: white;font-size: 12px;">'+data[i].name+'<strong style="color: #ff9725">'+data[i].grade+'</strong></p>\n' +
+                            '                 </div>';
+                    }
+                }
+                $("#native_fiction_no_2").html(row2_lis);
+                layui.use(['rate'], function(){
+                    var rate = layui.rate;
+                    //显示文字
+                    rate.render({
+                        elem: '#test6'
+                        ,value: data[0].grade/2
+                        ,readonly: true
+                        ,half:true
+                    });
+                });
+            }
+        });
+    })
+</script>
+</html>

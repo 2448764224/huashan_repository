@@ -1,0 +1,159 @@
+<header id="header">
+    <nav class="navbar navbar-default" style="background-color: rgba(240,243,245,0.57)">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">倦清寒</a>
+            </div>
+
+            <!-- Collect the  nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li ><a href="index.html">首页<span class="sr-only">(current)</span></a></li>
+                    <li class="dropdown ">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">图书<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="library_search.html">查找图书</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="library_category.html">图书分类</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="library_share.html">图书分享</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">个人首页</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">电影<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="movie_search.html">查找电影</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="movie_category.html">电影分类</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="movie_share.html">电影分享</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="movie_world.html">电影新世界</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">篮球<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="basketball_search.html">搜索</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="basketball_Star_Archive.html">球星档案</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="basketball_history.html">历史往事</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">名人趣事</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li id="login_li"><a  data-toggle="modal" href="#" id="header_login" data-target="#myModal">登录</a></li>
+                    <li id="register_li"><a id="header_register" href="register.html">注册</a></li>
+                    <li><a onclick="exit()" href="javascript:;">退出</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        请登录
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <form action="#" id="login_form" method="post">
+                        <div id="errorMsg" style="background-color: pink; width:40em;height: 2em;"></div>
+                        <div class="input-group" style="margin-top: 2em;">
+                            <span class="input-group-addon" id="basic-addon1">用户名：</span>
+                            <input type="text" id="username" name="username" class="form-control" placeholder="请输入用户名" aria-describedby="basic-addon1">
+                        </div>
+                        <div style="margin-top: 2em;" class="input-group">
+                            <span class="input-group-addon" id="basic-addon2">密码 ：</span>
+                            <input type="password" id="password" name="password" class="form-control" placeholder="请输入密码" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="verify" style="margin-top: 2em;">
+                            <label for="check_code">请输入验证码：</label>
+                            <input id="check_code" name="check_code" type="text" placeholder="请输入验证码" autocomplete="off">
+                            <span><img id="checkCode" src="checkCode" alt="" onclick="changeCheckCode(this)"></span>
+                            <script type="text/javascript">
+                                //图片点击事件
+                                function changeCheckCode(img) {
+                                    img.src="checkCode?"+new Date().getTime();
+                                }
+                            </script>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                            </button>
+                            <button  type="submit" id="login" class="btn btn-primary">
+                                登录
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+</header>
+<script>
+        $(function () {
+            $('#myModal').on('show.bs.modal', function () {
+                setTimeout(function () {
+                    var img = document.getElementById("checkCode");
+                    changeCheckCode(img);
+                },10);
+            });
+            $.post("isLoginServlet",{},function (data) {
+                if(data.flag){
+                    $("#header_login").remove();
+                    $("#header_register").remove();
+                }
+                else{
+                    $("#login_li").html('<a class="disabled"  data-toggle="modal" href="#" id="header_login" data-target="#myModal">登录</a>');
+                    $("#register_li").html('<a id="header_register" href="register.html">注册</a>');
+                }
+            });
+                $("#login_form").submit(function () {
+                    $.post("loginServlet",$(this).serialize(),function (resultInfo) {
+                        if(resultInfo.flag){
+                            $("#header_login").remove();
+                            $("#header_register").remove();
+                            $("#myModal").modal('hide');
+                            location.reload();
+                        }
+                        else{
+                            var img = document.getElementById("checkCode");
+                            changeCheckCode(img);
+                            $("#errorMsg").html("<p style='color: red' align='center'>"+resultInfo.errorMsg+"</p>");
+                        }
+                    });
+                    return false;
+                });
+            });
+        function  exit() {
+            var name = getParameter("name");
+            $.post("exitServlet",{},function (data) {
+                if(data.flag){
+                    $("#login_li").html('<a class="disabled"  data-toggle="modal" href="#" id="header_login" data-target="#myModal">登录</a>');
+                    $("#register_li").html('<a id="header_register" href="register.html">注册</a>');
+                    location.reload();
+                }
+                else{
+                    alert("请登录");
+                }
+            });
+        }
+</script>

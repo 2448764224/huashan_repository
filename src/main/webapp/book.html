@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 102 Template</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="layui-v2.5.6/layui/css/layui.css" media="all">
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+    <![endif]-->
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/include.js"></script>
+    <script src="js/getParameter.js"></script>
+</head>
+<body>
+    <div id=header></div>
+    <div style="background-color: rgba(242,242,242,0.2)" class="container">
+        <h1 id="name" style="font-weight: bolder;">远大前程</h1>
+        <div class="row">
+            <div class="col-md-2">
+                <img id="images" width="175px" height="250px">
+            </div>
+            <div class="col-md-4">
+                <table style="list-style: none;line-height: 2em;">
+                    <tr>
+                        <td><a href="index.jsp">返回首页</a></td>
+                    </tr>
+                    <tr id="author_li">
+                        <td>作者：</td>
+                        <td id="author" style="color: #3377aa;font-weight: bolder;"></td>
+                    </tr>
+                    <tr id="publishing_house_li">
+                        <td >出版社：</td>
+                        <td id="publishing_house"></td>
+                    </tr>
+                    <tr id="publication_year_li">
+                        <td>出版年：</td>
+                        <td id="publication_year"></td>
+                    </tr>
+                    <tr id="pages_li">
+                        <td>页数：</td>
+                        <td id="pages"></td>
+                    </tr>
+                    <tr id="price_li">
+                        <td>定价：</td>
+                        <td id="price"></td>
+                    </tr>
+                    <tr id="translator_li">
+                        <td>译者：</td>
+                        <td id="translator"></td>
+                    </tr>
+                    <tr id="past_name_li">
+                        <td>原作名：</td>
+                        <td id="past_name"></td>
+                    </tr>
+                    <tr id="series_li">
+                        <td>丛书：</td>
+                        <td id="series"></td>
+                    </tr>
+                    <tr id="category_li">
+                        <td>类型：</td>
+                        <td id="category"></td>
+                    </tr>
+                    <tr>
+                        <a  href="http://localhost/library/library_category.html#"></a>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td style="padding-top: 2em; padding-right: 1em;"><button  id="is_favourite" class="btn btn-default">点击收藏</button></td>
+                        <td style="padding-top: 2em;"><button id="want_read" class="btn btn-default">想读</button></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div style="width: 320px;height: 150px;" class="layui-card">
+                        <div style="font-size: 18px;color: black;font-weight: bold;" class="layui-card-header">评分</div>
+                        <div class="layui-card-body">
+                           <div class="col-md-6">
+                               <h2 id="grade" style="line-height: 70px;">8.3分</h2>
+                           </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div id="test9"></div>
+                                </div>
+                               <div class="row">
+                                   <p>&nbsp;&nbsp;&nbsp;123486人评价</p>
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 2em;">
+            <div  class="col-md-6" id="content_information_li" >
+
+                <div class="layui-collapse">
+                    <div class="layui-colla-item">
+                        <h2 class="layui-colla-title">内容简介</h2>
+                        <div class="layui-colla-content">
+                            <p id="content_information"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-collapse">
+                    <div class="layui-colla-item">
+                        <h2 class="layui-colla-title">作者简介</h2>
+                        <div class="layui-colla-content">
+                            <p id="author_information"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="layui-collapse">
+                    <div class="layui-colla-item">
+                        <h2 class="layui-colla-title">原文摘录</h2>
+                        <div class="layui-colla-content">
+                            <p id="verbatim">
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                        "我们坐在这个依稀若梦的房间里，当年使我心惑神迷的那种奇怪的气氛，依旧笼罩在周围。我得悉她刚从法国回来，马上就要去伦敦。虽然她的骄傲和任性仍旧不减当年，可是，如今她的骄傲和任性已只是为了要衬托自己的美貌，因此，离开她的美貌而要谈她的骄傲和任性是办不到的，也是谈不上的——至少我看是如此。老实说，见了她，我怎能不想起我童年时代平地起了波澜、一味痴心妄想、巴不得发财、巴不得做上等人？——见了她，我怎能不想起我做过的种种非分之想，从而看不起家，看不起乔？——见了她，我怎能不想起我时常由情生幻，在熊熊的炉火里会看见她的脸蛋儿，在铁砧上打铁会打出她的脸蛋儿，在沉沉的夜幕上也会出现她的脸蛋儿，仿佛在铁匠铺的木窗外往里一张，转眼即逝？总而言之统而言之，她始终留在我灵魂最深的深处，甩不开撇不开，以往如此，至今仍是如此"
+                            <p align="right">————————引自第211页</p>
+                            </li>
+                            <li class="list-group-item">
+                                "我们为人一世，往往就会这样，为了防范自己最看不起的人，结果干出了最最 卑鄙恶劣的行径。"
+                                <p align="right">————————引自第242页</p>
+                            </li>
+                            </ul>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6" >
+                <div style="margin-left: 15em" class="row">
+                    <span align="center" style="font-size: 18px; color: rgba(41,84,161,0.75)">点击量</span>: &nbsp;&nbsp;&nbsp;&nbsp;<span align="center" style="  font-size: 18px; color: rgb(255,151,37)" class="num" data-num="888888"></span>
+
+                </div>
+                <br>
+                <div style="margin-left: 15em" class="row">
+                    <span align="center" style="font-size: 18px; color: rgba(41,84,161,0.75)">收藏量</span>: &nbsp;&nbsp;&nbsp;&nbsp;<span align="center" style="  font-size: 18px; color: rgb(255,151,37)" class="num" data-num="888888"></span>
+
+                </div>
+                <br>
+                <div style="margin-left: 15em" class="row">
+                    <span align="center" style="font-size: 18px; color: rgba(41,84,161,0.75)">评论</span>: &nbsp;&nbsp;&nbsp;&nbsp;<span align="center" style="  font-size: 18px; color: rgb(255,151,37)" class="num" data-num="888888"></span>
+
+                </div>
+                <br>
+                <div style="margin-left: 15em" class="row">
+                    <span align="center" style="font-size: 18px; color: rgba(41,84,161,0.75)">想读</span>: &nbsp;&nbsp;&nbsp;&nbsp;<span align="center" style="  font-size: 18px; color: rgb(255,151,37)" class="num" data-num="888888"></span>
+
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 2em;">
+            <div class="col-md-12">
+                <p id="comment_nums" style="color: #000000;font-size: 25px;"></p>
+                <br>
+                <br>
+                <p>
+                    <span class="layui-breadcrumb" lay-separator="/">
+                          <a id="hot" href="javascript:;">热门</a>
+                          <a id="new" href="javascript:;">最新</a>
+                    </span>
+                </p>
+                <br>
+                <p>
+                    <ul id="comments" class="list-group">
+
+                    </ul>
+                </p>
+                <p>
+                <form  id="comment_form" action="#">
+                    <textarea id="comment" placeholder="评论~~" style="width: 80em;height: 10em;"></textarea>
+                    <input style="float: right;margin-top: 1em;margin-right: 1em;border: 1px solid black;" class="btn btn-default" type="submit" value="发表">
+                </form>
+                </p>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        $(function() {
+            var name = getParameter("name");
+            name = window.decodeURI(name);
+            $.post("isLoginServlet",{},function (data) {
+                if(data.flag){
+                    $.post("collectionServlet",{book_name:name},function (data) {
+                        if(!data.flag){
+                            $("#is_favourite").css("backgroundColor","");
+                            $("#is_favourite").html("点击收藏");
+                        }else{
+                            $("#is_favourite").css("backgroundColor","pink");
+                            $("#is_favourite").html("已收藏");
+                        }
+                    });
+                }else {
+                }
+            });
+            $(".num").numScroll();
+            $("#comment_form").bind('keydown', function (event) {
+                if (event.keyCode == 9) {
+                    var share  = $("#comment").html();
+                    share += "&nbsp;&nbsp;&nbsp;&nbsp;";
+                    $("#comment").html(share);
+                    return false;
+                }
+            });
+           //查询图书
+           $.get("findBookServlet",{name:name},function (Book) {
+                var name = Book.name;
+                if(name == null){
+                    $("#name_li").remove();
+                }
+                $("#name").html(name);
+
+                var author = Book.author;
+                if(author == null){
+                    $("#author_li").remove();
+                }
+                $("#author").html(author);
+
+                var publishing_house = Book.publishing_house;
+                if(publishing_house == null){
+                    $("#publishing_house_li").remove();
+                }
+                $("#publishing_house").html(publishing_house);
+
+
+                var publication_year = Book.publication_year;
+                if(publication_year == null){
+                    $("#publication_year_li").remove();
+                }
+                $("#publication_year").html(publication_year);
+
+
+                var price = Book.price;
+                if(price == null){
+                    $("#price_li").remove();
+                }
+                $("#price").html(price);
+
+
+                var pages = Book.pages;
+                if(pages == null){
+                    $("#pages_li").remove();
+                }
+                $("#pages").html(pages);
+
+
+                var category = Book.category;
+                if(category == null){
+                    $("#category_li").remove();
+                }
+                $("#category").html(category);
+
+                var images = Book.images;
+                if(images == null){
+                    $("#images_li").remove();
+                }
+                $("#images").prop("src",images.toString());
+
+                var content_information = Book.content_information;
+                if(content_information == null){
+                    $("#content_information").html("无");
+                }else {
+                    $("#content_information").html(content_information);
+                }
+                var author_information = Book.author_information;
+                if(author_information == null){
+                    $("#author_information").html("无");
+                }else {
+                    $("#author_information").html(author_information);
+                }
+                var series = Book.series;
+                if(series == null){
+                    $("#series_li").remove();
+                }
+                $("#series").html(series);
+
+                var past_name = Book.past_name;
+                if(past_name == null){
+                    $("#past_name_li").remove();
+                }
+                $("#past_name").html(past_name);
+
+                var translator = Book.translator;
+                if(translator == null){
+                    $("#translator_li").remove();
+                }
+                $("#translator").html(translator);
+
+
+                $("#is_favourite").click(function () {
+                    is_favourite(name);
+                });
+
+                var grade = Book.grade;
+                if(grade == "null"){
+                    $("#grade").text("暂无分数");
+                }
+               $("#grade").text(grade);
+           });
+           //初次进入页面，根据留言内容排序
+           getComments(name,"time");
+           //为最热或者最新按钮添加点击事件
+            $("#hot").click(function () {
+                //最热，以点赞数排序
+                getComments(name,"good");
+            });
+            $("#new").click(function () {
+                //最新，以时间排序
+                getComments(name,"time");
+            });
+           //添加评论
+            $("#comment_form").submit(function () {
+                $.post("isLoginServlet",{},function (data) {
+                    if(data.flag){
+                        var comment = $("#comment").val();
+                        if(comment == ""){
+                            alert("不能为空");
+                        }else{
+                            $.post("addBookCommentServlet",{comment:comment,name:name},function (data) {
+                                if(data.flag){
+                                    location.href="book.html?name="+name;
+                                }
+                            });
+                        }
+                    }else{
+                        alert("请登录")
+                    }
+                });
+                return false;
+            });
+            // var new_name = getParameter("name");
+            // new_name= window.decodeURI(new_name);
+
+        });
+        //取得图书评论
+        function getComments(name,category) {
+            $.post("getBookCommentServlet",{name:name,category:category},function (data) {
+                var comment_nums = "评论("+data.list.length+")";
+                $("#comment_nums").html(comment_nums);
+                if(data.list.length == 0){
+
+                }
+                else{
+                    var comments = $("#comments");
+                    var lis = "";
+                    for(var i = 0 ; i<data.list.length; i++){
+                        data.list[i].user_image = data.list[i].user_image.substring(data.list[i].user_image.lastIndexOf("img"));
+                        var length ;
+                        if(data.list[i].good == null){
+                            data.list[i].good=0;
+                        }
+                        if(data.list[i].replys == null){
+                            length = 0;
+                        }else {
+                            length = data.list[i].replys.length;
+                        }
+
+                        if(data.isDelete[i]){
+                            lis +=' <li class="list-group-item">\n' +
+                                '<div class="layui-inline">\n' +
+                                '<img width="55px" height="55px;" src="'+data.list[i].user_image+'" class="layui-circle"> &nbsp;&nbsp<span style="color: #FF5722" id="username">'+data.list[i].username+'</span> &nbsp;&nbsp;'+data.list[i].time+'\n' +
+                                '</div>\n' +
+                                '<p style="color: #999999"></p>\n' +
+                                '<p style="margin-top: 1em;padding-left: 5em;">\n' +
+                                ''+data.list[i].book_comment+'\n' +
+                                '</p>\n' +
+                                '<p style="margin-top: 1em;">\n' +
+                                '<a  onclick="give_like('+data.list[i].id+')" style="text-decoration: none;" href="javascript:;"><i  style="color: rgb(203,58,70)" class="layui-icon-praise layui-icon"></i> '+data.list[i].good+'&nbsp;&nbsp;&nbsp;</a>\n' +
+                                '<a style="text-decoration: none;" href="#"><i style="color: rgba(0,0,0,0.27)" class="layui-icon layui-icon-reply-fill"></i>查看回复（'+length+'）</a>\n' +
+                                '<a onclick="del('+data.list[i].id+')" href="javascript:;">删除</a>' +
+                                '</p>\n' +
+                                '</li>';
+                        }
+                        else{
+                            lis +=' <li class="list-group-item">\n' +
+                                '<div class="layui-inline">\n' +
+                                '<img width="55px" height="55px;" src="'+data.list[i].user_image+'" class="layui-circle"> &nbsp;&nbsp<span style="color: #FF5722" id="username">'+data.list[i].username+'</span> &nbsp;&nbsp;'+data.list[i].time+'\n' +
+                                '</div>\n' +
+                                '<p style="color: #999999"></p>\n' +
+                                '<p style="margin-top: 1em;padding-left: 5em;">\n' +
+                                ''+data.list[i].book_comment+'\n' +
+                                '</p>\n' +
+                                '<p style="margin-top: 1em;">\n' +
+                                '<a  onclick="give_like('+data.list[i].id+')" style="text-decoration: none;" href="javascript:;"><i  style="color: rgb(203,58,70)" class="layui-icon-praise layui-icon"></i> '+data.list[i].good+'&nbsp;&nbsp;&nbsp;</a>\n' +
+                                '<a style="text-decoration: none;" href="#"><i style="color: rgba(0,0,0,0.27)" class="layui-icon layui-icon-reply-fill"></i>查看回复（'+length+'）</a>\n' +
+                                '</p>\n' +
+                                '</li>';
+                        }
+                    }
+                    comments.html(lis);
+                }
+            });
+        }
+        //判断图书是否被用户收藏
+        function  is_favourite(book_name) {
+            $.get("isLoginServlet",{},function (data) {
+                if(data.flag){
+                    $.post("collectionServlet",{book_name:book_name},function (resultInfo) {
+                        //点击事件，当按钮点击的时候，就应该有一个是否收藏的状态
+                        if(resultInfo.flag){
+                            //如果收藏了，就移除
+                            $.post("favouriteBookServlet",{book_name:book_name,isCollection:false},function () {
+                                $("#is_favourite").css("backgroundColor","");
+                                $("#is_favourite").html("点击收藏");
+                            });
+                        }
+                        else {
+                            //如果没收藏，则收藏
+                            $.post("favouriteBookServlet",{book_name:book_name,isCollection:true},function () {
+                                $("#is_favourite").css("backgroundColor","pink");
+                                $("#is_favourite").html("已收藏");
+                            });
+                        }
+                    });
+                }
+                else{
+                    // $("#myModal1").modal();
+                    // $("#login_form1").submit(function () {
+                    //     $.post("loginServlet",$(this).serialize(),function (resultInfo) {
+                    //         if(resultInfo.flag){
+                    //             $("#header_login").remove()
+                    //             $("#header_register").remove();
+                    //             is_favourite();
+                    //         }
+                    //         else{
+                    //             $("#errorMsg").html("<p style='color: red' align='center'>"+resultInfo.errorMsg+"</p>");
+                    //         }
+                    //         return false;
+                    //     });
+                    // });
+                    alert("请先登录");
+                }
+            });
+        }
+        //删除自己的评论
+        function del(id){
+            $.post("deleteCommentServlet",{id:id},function (result) {
+                if(result.flag){
+                    location.reload();
+                }
+            });
+        }
+        //给留言点赞
+        function give_like(comment_id) {
+           $.post("isLoginServlet",{},function (data) {
+                if(data.flag){
+                    $.post("isGiveLikeServlet",{comment_id:comment_id},function (data) {
+                            //点击事件，当按钮点击的时候，就应该有一个是否点赞的状态
+                            if(data.flag){
+                                location.reload();
+                                //如果点赞了，再次点击就不点赞了
+                                $.get("giveBookCommentLikeServlet",{comment_id:comment_id,isCanceled:false},function () {
+                                });
+
+                            }
+                            else{
+                                location.reload();
+                                //如果没点赞，再次点击就会点赞
+                                $.get("giveBookCommentLikeServlet",{comment_id:comment_id,isCanceled:true},function () {
+                                });
+                            }
+                        });
+                }else{
+                    alert("请先登录");
+                }
+           })
+        }
+    </script>
+    <script src="layui-v2.5.6/layui/layui.js"></script>
+    <script>
+        layui.use(['element', 'layer'], function(){
+            var element = layui.element;
+            var layer = layui.layer;
+
+            //监听折叠
+            element.on('collapse(test)', function(data){
+                layer.msg('展开状态：'+ data.show);
+            });
+        });
+        layui.use(['rate'], function(){
+            var rate = layui.rate;
+
+            //只读
+            rate.render({
+                elem: '#test9'
+                ,value: 4
+                ,readonly: true
+            });
+
+        });
+    </script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.numscroll.js"></script>
+</body>
+</html>

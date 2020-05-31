@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 102 Template</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+    <![endif]-->
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/getParameter.js"></script>
+    <link rel="stylesheet" href="layui-v2.5.6/layui/css/layui.css" media="all">
+    <script type="text/javascript" src="js/include.js"></script>
+    <style>
+        .sport_carousel1,.sport_carousel2,.sport_carousel3,.sport_carousel4,.sport_carousel5{
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+        }
+        .sport_carousel1{
+            background-image: url("img/kobe1.jpg");
+        }
+        .sport_carousel2{
+            background-image: url("img/kobe.jpg");
+        }
+        .sport_carousel3{
+            background-image: url("img/jorden1.jpg");
+        }
+        .sport_carousel4{
+            background-image: url("img/pierce1.jpg");
+        }
+        .sport_carousel5{
+            background-image: url("img/kobe1.jpg");
+        }
+        .sport_carouse_zhe{
+            background-color: white;
+            width: 100%;
+            opacity: 0.5;
+            height: 150px;
+            margin-top: 350px;
+            z-index: -1;
+        }
+        .footer{
+            background-image: url("img/footer-bg.jpg");
+            width: 100%;
+            height: 545px;
+            background-size: cover;
+            z-index: -1;
+        }
+        .footer li a{
+            color: whitesmoke;
+        }
+    </style>
+</head>
+<body>
+<header id="header"></header>
+<nav>
+    <div class="layui-carousel" id="test1">
+        <div carousel-item>
+            <div style="width: 100%;">
+                <img width="100%" src="img/movie/movie_search/movie_homePage1.jpg" alt="">
+            </div>
+            <div><img width="100%" src="img/movie/movie_search/movie_homePage2.jpg" alt=""></div>
+            <div><img width="100%" src="img/movie/movie_search/movie_homePage3.jpg" alt=""></div>
+        </div>
+    </div>
+</nav>
+<banner>
+    <div  class="container-fluid" style="margin-top: 5em;margin-bottom: 5em;">
+        <div class="row">
+            <div class="col-md-2">
+                <ul id="popular_movie_10" style="margin-top: 20em;margin-bottom: 40em;" class="list-group">
+                </ul>
+                <ul style="font-size: 12px; margin-bottom: 20em;" class="list-group">
+                    <li class="list-group-item active">实时资讯</li>
+                    <li class="list-group-item">凌晨四点的科比：比你强的比你还努力</li>
+                    <li class="list-group-item">凌晨四点的科比：比你强的比你还努力</li>
+                    <li class="list-group-item">凌晨四点的科比：比你强的比你还努力</li>
+                    <li class="list-group-item">凌晨四点的科比：比你强的比你还努力</li>
+                    <li class="list-group-item">凌晨四点的科比：比你强的比你还努力</li>
+                    <li class="list-group-item">凌晨四点的科比：比你强的比你还努力</li>
+                    <li class="list-group-item">凌晨四点的科比：比你强的比你还努力</li>
+                    <li class="list-group-item">凌晨四点的科比：比你强的比你还努力</li>
+                    <li class="list-group-item">凌晨四点的科比：比你强的比你还努力</li>
+                    <li class="list-group-item">凌晨四点的科比：比你强的比你还努力</li>
+                </ul>
+            </div>
+            <div class="col-md-10">
+                <!-- 热门电影 -->
+                <div class="row">
+                    <h3 style="color: #01AAED"> &nbsp;&nbsp;热门电影</h3>
+                </div>
+                <div id="popular_movie_row1" style="margin-bottom: 12em;" class="row">
+                </div>
+                <div id="popular_movie_row2" style="margin-top: 5em;" class="row">
+                </div>
+                <!-- 球星档案 -->
+                <div style=" margin-bottom: 2em; margin-top: 14em;" class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-7">
+                            <h3 style="padding-bottom: 1em; color: #01AAED">球坛往事</h3>
+                            <div class="layui-carousel" id="test2">
+                                <div carousel-item>
+                                    <div class="sport_carousel1">
+                                        <div class="sport_carouse_zhe">
+                                            <h2 style="z-index: 1; padding-top: 50px;padding-left: 30px; color: black;">科比：曾经影响无数的英雄</h2>
+                                        </div>
+                                    </div>
+                                    <div class="sport_carousel2">
+                                        <div class="sport_carouse_zhe">
+                                            <h2 style="z-index: 1; padding-top: 50px;padding-left: 30px; color: black;">科比：曾经影响无数的英雄</h2>
+                                        </div>
+                                    </div>
+                                    <div class="sport_carousel3">
+                                        <div class="sport_carouse_zhe">
+                                            <h2 style="z-index: 1; padding-top: 50px;padding-left: 30px; color: black;">乔丹：又一个伟大的迈克尔</h2>
+                                        </div>
+                                    </div>
+                                    <div class="sport_carousel4">
+                                        <div class="sport_carouse_zhe">
+                                            <h2 style="z-index: 1; padding-top: 50px;padding-left: 30px; color: black;">皮尔斯：你是谁都好，我依然是我</h2>
+                                        </div>
+                                    </div>
+                                    <div class="sport_carousel5">
+                                        <div class="sport_carouse_zhe">
+                                            <h2 style="z-index: 1; padding-top: 50px;padding-left: 30px; color: black;">科比：曾经影响无数的英雄</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 ">
+                            <ul style=" color: #01AAED; font-weight: bold; margin-top: 5em; line-height: 3em; list-style: circle;">
+                                <li>精选文章：</li>
+                                <li><a style="text-decoration: none;" href="#">悲惨而又可笑！NBA历史上还没开始就结束的执教经历</a></li>
+                                <li><a style="text-decoration: none;" href="#">[场外巨星]第18期：“跨界巨星”足球名将史蒂夫-纳什</a></li>
+                                <li><a style="text-decoration: none;" href="#">幕后故事！深度揭秘达拉斯的五年“东契奇计划” </a></li>
+                                <li><a style="text-decoration: none;" href="#">季后赛马上来到，步行者和奥拉迪波准备好了吗？</a></li>
+                                <li><a style="text-decoration: none;" href="#">马布里展示核酸检测如何进行，检测结果非常健康</a></li>
+                                <li><a style="text-decoration: none;" href="#">凌晨四点的科比：比你强的比你还努力</a></li>
+                                <li><a href="#" style="text-decoration: none">雷霆爵士停赛那夜是怎样度过的</a></li>
+                                <li><a href="#" style="text-decoration: none">詹姆斯-怀特等效力于意甲篮球联赛的前NBA球员已返回美国</a></li>
+                                <li><a href="#" style="text-decoration: none">雷霆爵士停赛那夜是怎样度过的</a></li>
+                                <li><a href="#" style="text-decoration: none">发展联盟周记：每个瞬间都可能改变一切</a></li>
+                                <li><a href="#" class="btn btn-primary" role="button">查看更多</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!--读书笔记-->
+                <div class="row">
+                    <div style="font-size: 18px; margin-top: 4em;" class="col-md-1">
+                        <p style="font-size: 22px; color: #8ba0ff">分类</p>
+                        <ul style="list-style-type: none;line-height: 2em;">
+                            <li><a onclick="newExpress('文学')" style="text-decoration: none;" href="javascript:void(0);">文学</a></li>
+                            <li><a onclick="newExpress('小说')" style="text-decoration: none;" href="javascript:void(0);">小说</a></li>
+                            <li><a onclick="newExpress('散文')" style="text-decoration: none;" href="javascript:void(0);">散文</a></li>
+                            <li><a onclick="newExpress('诗歌')" style="text-decoration: none;" href="javascript:void(0);">诗歌</a></li>
+                            <li><a onclick="newExpress('历史')" style="text-decoration: none;" href="javascript:void(0);">历史</a></li>
+                            <li><a onclick="newExpress('悬疑')" style="text-decoration: none;" href="javascript:void(0);">悬疑</a></li>
+                            <li><a  style="text-decoration: none;" href="library_category.html">更多</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-8">
+                        <div style="margin-left: 1em;margin-bottom: 1em;" class="row">新书速递... <a style="text-decoration: none;color: #8ba0ff" href="library_search.html">更多</a></div>
+                        <div class="row">
+                            <div class="col-md-10">
+                                <div id="newExpress_row1" class="row">
+
+                                </div>
+                                <div id="newExpress_row2" style="margin-top: 1em;" class="row">
+                                </div>
+                            </div>
+                            <div   class="col-md-1">
+                                <div style=" width: 20em;height: 40em; background-image: url('img/guanggao.jpg');background-size: cover;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</banner>
+<div class="footer">
+    <div class="container-fluid" style="padding-top: 10em;">
+        <div style="padding-top: 5em; color: white;" class="row">
+            <div class="col-md-3">
+                <img style="padding-top: 30px;padding-left: 100px;" src="img/jack.png" alt="">
+            </div>
+            <div class="col-md-2">
+                <h3>地址</h3>
+                <br>
+                <p>你要是诚心诚意想要，我也可以给你</p>
+            </div>
+            <div class="col-md-2">
+                <h3>页面</h3>
+                <ul style="line-height: 2em;">
+                    <br>
+                    <li ><a style="text-decoration: none;" href="#">404</a></li>
+                    <li ><a style="text-decoration: none;" href="#">图书</a></li>
+                    <li ><a style="text-decoration: none;" href="#">电影</a></li>
+                    <li ><a style="text-decoration: none;" href="#">篮球</a></li>
+                    <li ><a style="text-decoration: none;" href="#">关于我</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2 ">
+                <ul style="color: white;line-height: 2em;">
+                    <br>
+                    <br>
+                    <li ><a style="text-decoration: none;" href="#">404</a></li>
+                    <li ><a style="text-decoration: none;" href="#">图书</a></li>
+                    <li ><a style="text-decoration: none;" href="#">电影</a></li>
+                    <li ><a style="text-decoration: none;" href="#">篮球</a></li>
+                    <li ><a style="text-decoration: none;" href="#">关于我</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h3>邮箱</h3>
+                <br>
+                <br>
+                <br>
+                <p>输入邮箱，您将获得更多的图书、电影、篮球讯息</p>
+                <br>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="请输入">
+                    <span class="input-group-btn">
+                           <button class="btn btn-default" type="button">确定</button>
+                        </span>
+                </div><!-- /input-group -->
+                <br>
+                <br>
+                <p>© 2019. 版权也没人争啊</p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="layui-v2.5.6/layui/layui.js"></script>
+<script>
+    layui.use('carousel', function(){
+        var carousel = layui.carousel;
+        //建造实例
+        carousel.render({
+            elem: '#test1'
+            ,width: '100%' //设置容器宽度
+            ,arrow: 'always' //始终显示箭头
+            ,height: 500
+            ,autoplay: true
+            //,anim: 'hover' //切换动画方式
+        });
+
+        carousel.render({
+            elem: '#test2'
+            ,width: 700 //设置容器宽度
+            ,arrow: 'always' //始终显示箭头
+            ,height: 500
+            ,interval:2000
+            //,anim: 'updown' //切换动画方式
+        });
+    });
+</script>
+<script>
+    $(function () {
+        $.post("popularMovieServlet",{},function (data) {
+            var popular_movie_row1 = "";
+            for(var i = 0 ;i<3; i++){
+                popular_movie_row1 +='<div style="margin-right: 2em;" class="col-sm-6 col-md-3">\n' +
+                    '                            <br>\n' +
+                    '                            <div style="width: 300px;height: 350px;" >\n' +
+                    '                                <img width="300px" height="350px" src="'+data[i].movie_images+'" alt="...">\n' +
+                    '                                <div class="caption">\n' +
+                    '                                    <p align="left" style="margin-bottom: 1em;margin-top: 1em;">'+data[i].introduce+'</p>\n' +
+                    '                                    <p><a href="http://localhost/library/movie.html?name='+data[i].movie_name+'" class="btn btn-primary" role="button">查看更多\n' +
+                    '                                    </a></p>\n' +
+                    '                                </div>\n' +
+                    '                            </div>\n' +
+                    '                        </div>';
+            }
+            $("#popular_movie_row1").html(popular_movie_row1);
+
+
+            var popular_movie_row2 = "";
+            for(var i = 3 ;i<data.length; i++){
+                popular_movie_row2 +='<div style="margin-right: 2em;" class="col-sm-6 col-md-3">\n' +
+                    '                            <br>\n' +
+                    '                            <div style="width: 300px;height: 300px;" >\n' +
+                    '                                <img width="300px" height="350px" src="'+data[i].movie_images+'" alt="...">\n' +
+                    '                                <div class="caption">\n' +
+                    '                                    <p align="left" style="margin-bottom: 1em;margin-top: 1em;">'+data[i].introduce+'</p>\n' +
+                    '                                    <p><a href="http://localhost/library/movie.html?name='+data[i].movie_name+'" class="btn btn-primary" role="button">查看更多\n' +
+                    '                                    </a></p>\n' +
+                    '                                </div>\n' +
+                    '                            </div>\n' +
+                    '                        </div>';
+            }
+            $("#popular_movie_row2").html(popular_movie_row2);
+        });
+        $.post("newExpressServlet",{},function (data) {
+            var newExpress_row1 = "";
+            for(var i = 0; i<4; i++){
+                newExpress_row1 += '<div class="col-xs-6 col-md-3">\n' +
+                    '                                            <a style="margin-bottom: 4px;" href="http://localhost/library/book.html?name='+data[i].name+'" class="thumbnail">\n' +
+                    '                                                <img src="'+data[i].images+'">\n' +
+                    '                                            </a>\n' +
+                    '                                            <p style="margin-bottom: 5px;" align="center">'+data[i].author+'</p>\n' +
+                    '                                            <p align="center">'+data[i].name+'</p>\n' +
+                    '                                        </div>';
+            }
+            $("#newExpress_row1").html(newExpress_row1);
+
+            var newExpress_row2 = "";
+            for(var i = 4; i<data.length; i++){
+                newExpress_row2 += '<div class="col-xs-6 col-md-3">\n' +
+                    '                                            <a style="margin-bottom: 4px;" href="http://localhost/library/book.html?name='+data[i].name+'" class="thumbnail">\n' +
+                    '                                                <img src="'+data[i].images+'">\n' +
+                    '                                            </a>\n' +
+                    '                                            <p style="margin-bottom: 5px;" align="center">'+data[i].author+'</p>\n' +
+                    '                                            <p align="center">'+data[i].name+'</p>\n' +
+                    '                                        </div>';
+            }
+            $("#newExpress_row2").html(newExpress_row2);
+        });
+    })
+</script>
+<script>
+    function  newExpress(obj) {
+        $.post("showNewExpressByCategory",{obj:obj},function (data) {
+            if(data.length == 8) {
+                var newExpress_row1 = "";
+                for (var i = 0; i < 4; i++) {
+                    newExpress_row1 += '<div class="col-xs-6 col-md-3">\n' +
+                        '                                            <a style="margin-bottom: 4px;" href="http://localhost/library/book.html?name=' + data[i].name + '" class="thumbnail">\n' +
+                        '                                                <img src="' + data[i].images + '">\n' +
+                        '                                            </a>\n' +
+                        '                                            <p style="margin-bottom: 5px;" align="center">' + data[i].author + '</p>\n' +
+                        '                                            <p align="center">' + data[i].name + '</p>\n' +
+                        '                                        </div>';
+                }
+                $("#newExpress_row1").html(newExpress_row1);
+
+                var newExpress_row2 = "";
+                for (var i = 4; i < data.length; i++) {
+                    newExpress_row2 += '<div class="col-xs-6 col-md-3">\n' +
+                        '                                            <a style="margin-bottom: 4px;" href="http://localhost/library/book.html?name=' + data[i].name + '" class="thumbnail">\n' +
+                        '                                                <img src="' + data[i].images + '">\n' +
+                        '                                            </a>\n' +
+                        '                                            <p style="margin-bottom: 5px;" align="center">' + data[i].author + '</p>\n' +
+                        '                                            <p align="center">' + data[i].name + '</p>\n' +
+                        '                                        </div>';
+                }
+                $("#newExpress_row2").html(newExpress_row2);
+            }else {
+                if(data.length>4){
+                    var newExpress_row1 = "";
+                    for (var i = 0; i < 4; i++) {
+                        newExpress_row1 += '<div class="col-xs-6 col-md-3">\n' +
+                            '                                            <a style="margin-bottom: 4px;" href="http://localhost/library/book.html?name=' + data[i].name + '" class="thumbnail">\n' +
+                            '                                                <img src="' + data[i].images + '">\n' +
+                            '                                            </a>\n' +
+                            '                                            <p style="margin-bottom: 5px;" align="center">' + data[i].author + '</p>\n' +
+                            '                                            <p align="center">' + data[i].name + '</p>\n' +
+                            '                                        </div>';
+                    }
+                    $("#newExpress_row1").html(newExpress_row1);
+
+                    var newExpress_row2 = "";
+                    for (var i = 4; i < data.length; i++) {
+                        newExpress_row2 += '<div class="col-xs-6 col-md-3">\n' +
+                            '                                            <a style="margin-bottom: 4px;" href="http://localhost/library/book.html?name=' + data[i].name + '" class="thumbnail">\n' +
+                            '                                                <img src="' + data[i].images + '">\n' +
+                            '                                            </a>\n' +
+                            '                                            <p style="margin-bottom: 5px;" align="center">' + data[i].author + '</p>\n' +
+                            '                                            <p align="center">' + data[i].name + '</p>\n' +
+                            '                                        </div>';
+                    }
+                    $("#newExpress_row2").html(newExpress_row2);
+                }else  if(data.length !=0){
+                    var newExpress_row1 = "";
+                    for (var i = 0; i < data.length; i++) {
+                        newExpress_row1 += '<div class="col-xs-6 col-md-3">\n' +
+                            '                                            <a style="margin-bottom: 4px;" href="http://localhost/library/book.html?name=' + data[i].name + '" class="thumbnail">\n' +
+                            '                                                <img src="' + data[i].images + '">\n' +
+                            '                                            </a>\n' +
+                            '                                            <p style="margin-bottom: 5px;" align="center">' + data[i].author + '</p>\n' +
+                            '                                            <p align="center">' + data[i].name + '</p>\n' +
+                            '                                        </div>';
+                    }
+                    $("#newExpress_row1").html(newExpress_row1);
+                    $("#newExpress_row2").html("");
+                }else {
+                    $("#newExpress_row1").html("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;暂时没有新书");
+                    $("#newExpress_row2").html("");
+                }
+            }
+        });
+    }
+</script>
+<script>
+    $(function () {
+        $.post("popularMovieListServlet",{},function (data) {
+            if(data.length<0){
+
+            }else {
+                var lis = "<li class=\"list-group-item active\">搜索前十</li>";
+                for( var i = 0 ; i < data.length; i++){
+                    lis += '<li class="list-group-item"><a style="text-decoration: none" href="http://localhost/library/movie.html?name='+data[i].movie_name+'">'+(i+1)+'.  '+data[i].movie_name+' <span style="color: #009688"> &nbsp;&nbsp;'+data[i].region+'</span></a></li>';
+                }
+            }
+            $("#popular_movie_10").html(lis);
+        });
+    })
+</script>
+</html>

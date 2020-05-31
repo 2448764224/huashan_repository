@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 102 Template</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+    <![endif]-->
+
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/include.js" type="text/javascript"></script>
+    <script src="js/getParameter.js"></script>
+</head>
+<body>
+<div id="header"></div>
+    <div class="container" style="background-color: rgba(247,247,247,0.57);">
+        <div class="row">
+            <div class="col-sm-12 col-xs-12 col-md-12">
+                <p style="font-size: 18px;font-weight: bolder;color: black">选影视</p>
+            </div>
+        </div>
+        <div class="row">
+           <div class="col-sm-12 col-xs-12 col-md-8">
+
+               <div style="margin-left: 1em;" class="btn-group">
+                   <button id="form" type="button" style="width: 6em;height: 3em;" class="btn btn-default dropdown-toggle btn-xs" data-toggle="dropdown">所有形式
+                       </button>
+                   <ul  class="dropdown-menu" role="menu">
+                       <li>
+                           <a onclick="setForm('所有形式')" href="#">所有形式</a>
+                       </li>
+                       <li class="divider"></li>
+                       <li>
+                           <a onclick="setForm('电影')" href="#">电影</a>
+                       </li>
+                       <li class="divider"></li>
+                       <li>
+                           <a onclick="setForm('电视剧')" href="#">电视剧</a>
+                       </li>
+                       <li class="divider"></li>
+                       <li>
+                           <a onclick="setForm('综艺')" href="#">综艺</a>
+                       </li>
+                       <li class="divider"></li>
+                       <li>
+                           <a onclick="setForm('动漫')" href="#">动漫</a>
+                       </li>
+                       <li class="divider"></li>
+                       <li>
+                           <a onclick="setForm('纪录片')" href="#">纪录片</a>
+                       </li>
+                       <li class="divider"></li>
+                       <li>
+                           <a onclick="setForm('短片')" href="#">短片</a>
+                       </li>
+                   </ul>
+               </div>
+
+
+               <div class="btn-group">
+                   <button id="region" type="button" style="width: 6em;height: 3em;" class="btn btn-default dropdown-toggle btn-xs" data-toggle="dropdown">所有地区
+                       <span class="caret"></span></button>
+                   <ul class="dropdown-menu" role="menu">
+                       <li>
+                           <a onclick="setRegion('所有地区')" href="#">所有地区</a>
+                       </li>
+                       <li class="divider"></li>
+                       <li>
+                           <a onclick="setRegion('中国大陆')" href="#">中国大陆</a>
+                       </li>
+                       <li class="divider"></li>
+                       <li>
+                           <a onclick="setRegion('美国')" href="#">美国</a>
+                       </li>
+                       <li class="divider"></li>
+                       <li>
+                           <a onclick="setRegion('中国香港')" href="#">中国香港</a>
+                       </li>
+                       <li class="divider"></li>
+                       <li>
+                           <a onclick="setRegion('中国台湾')" href="#">法国</a>
+                       </li>
+                       <li class="divider"></li>
+                       <li>
+                           <a onclick="setRegion('日本')" href="#">印度</a>
+                       </li>
+                       <li class="divider"></li>
+                       <li>
+                           <a onclick="setRegion('韩国')" href="#">韩国</a>
+                       </li>
+                       <li class="divider"></li>
+                       <li>
+                           <a onclick="setRegion('英国')" href="#">英国</a>
+                       </li>
+                       <li class="divider"></li>
+                       <li>
+                           <a onclick="setRegion('其他')" href="#">其他</a>
+                       </li>
+                   </ul>
+               </div>
+
+
+               <div class="btn-group">
+                   <button id="category" type="button" style="width: 6em;height: 3em;" class="btn btn-default dropdown-toggle btn-xs" data-toggle="dropdown">所有类型
+                       <span class="caret"></span></button>
+                   <ul id="categorys" class="dropdown-menu" role="menu">
+                       <li>
+                           <a onclick="setCategory('所有类型')" href="#">所有类型</a>
+                       </li>
+                       <li class="divider"></li>
+                       <li>
+                           <a onclick="setCategory('剧情')" href="#">剧情</a>
+                       </li>
+                       <li class="divider"></li>
+                       <li>
+                           <a onclick="setCategory('喜剧')" href="#">喜剧</a>
+                       </li>
+                       <li class="divider"></li>
+                       <li>
+                           <a onclick="setCategory('动作')" href="#">动作</a>
+                       </li>
+                       <li class="divider"></li>
+                       <li>
+                           <a onclick="setCategory('爱情')" href="#">爱情</a>
+                       </li>
+                       <li class="divider"></li>
+                       <li>
+                           <a onclick="setCategory('科幻')" href="#">科幻</a>
+                       </li>
+                       <li class="divider"></li>
+                       <li>
+                           <a onclick="setCategory('动画')" href="#">动画</a>
+                       </li>
+                       <li class="divider"></li>
+                       <li>
+                           <a onclick="setCategory('悬疑')" href="#">悬疑</a>
+                       </li>
+                       <li class="divider"></li>
+                       <li>
+                           <a onclick="setCategory('惊悚')" href="#">惊悚</a>
+                       </li>
+                       <li class="divider"></li>
+                       <li>
+                           <a onclick="setCategory('恐怖')" href="#">恐怖</a>
+                       </li>
+                       <li class="divider"></li>
+                       <li>
+                           <a onclick="setCategory('犯罪')" href="#">犯罪</a>
+                       </li>
+                       <li class="divider"></li>
+                       <li>
+                           <a onclick="setCategory('同性')" href="#">同性</a>
+                       </li>
+                       <li class="divider"></li>
+                       <li>
+                           <a onclick="setCategory('音乐')" href="#">音乐</a>
+                       </li>
+                       <li class="divider"></li>
+                       <li>
+                           <a onclick="setCategory('歌舞')" href="#">歌舞</a>
+                       </li>
+                       <li class="divider"></li>
+                       <li>
+                           <a onclick="setCategory('传记')" href="#">传记</a>
+                       </li>
+                       <li class="divider"></li>
+                       <li>
+                           <a onclick="setCategory('历史')" href="#">历史</a>
+                       </li>
+                       <li class="divider"></li>
+                       <li>
+                           <a onclick="setCategory('战争')" href="#">战争</a>
+                       </li>
+                       <li class="divider"></li>
+                       <li>
+                           <a onclick="setCategory('西部')" href="#">西部</a>
+                       </li>
+                       <li class="divider"></li>
+                       <li>
+                           <a onclick="setCategory('奇幻')" href="#">奇幻</a>
+                       </li>
+                       <li class="divider"></li>
+                       <li>
+                           <a onclick="setCategory('冒险')" href="#">冒险</a>
+                       </li>
+                       <li class="divider"></li>
+                       <li>
+                           <a onclick="setCategory('灾难')" href="#">灾难</a>
+                       </li>
+                       <li class="divider"></li>
+                       <li>
+                           <a onclick="setCategory('武侠')" href="#">武侠</a>
+                       </li>
+                       <li class="divider"></li>
+                       <li>
+                           <a onclick="setCategory('情色')" href="#">情色</a>
+                       </li>
+                       <li class="divider"></li>
+                   </ul>
+               </div>
+               <div class="btn-group">
+                   <button id="year" type="button" style="width: 6em;height: 3em;" class="btn btn-default dropdown-toggle btn-xs" data-toggle="dropdown">所有年代
+                       <span class="caret"></span></button>
+                   <ul id="years" class="dropdown-menu" role="menu">
+                       <li>
+                           <a onclick="setYear('所有年代')" href="#">所有年代</a>
+                       </li>
+                       <li class="divider"></li>
+                       <li>
+                           <a onclick="setYear('2010年代')" href="#">2010年代</a>
+                       </li>
+                       <li class="divider"></li>
+                       <li>
+                           <a onclick="setYear('2000年代')" href="#">2000年代</a>
+                       </li>
+                       <li class="divider"></li>
+                       <li>
+                           <a onclick="setYear('1990年代')" href="#">1990年代</a>
+                       </li>
+                       <li class="divider"></li>
+                       <li>
+                           <a onclick="setYear('1980年代')" href="#">1980年代</a>
+                       </li>
+                       <li class="divider"></li>
+                       <li>
+                           <a onclick="setYear('1970年代')" href="#">1970年代</a>
+                       </li>
+                       <li class="divider"></li>
+                       <li>
+                           <a onclick="setYear('1960年代')" href="#">1960年代</a>
+                       </li>
+                   </ul>
+               </div>
+           </div>
+        </div>
+
+    <div class="row" style="margin-top: 2em;margin-left: 1em;">
+        <div class="btn-group" role="group" aria-label="...">
+            <button type="button" class="btn btn-default">近期热门</button>
+            <button type="button" class="btn btn-default">标记最多</button>
+            <button type="button" class="btn btn-default">评分最高</button>
+            <button type="button" class="btn btn-default">最新上映</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <table style="margin-top: 1em;" id="movies">
+            </table>
+            <button id="more" class="btn btn-default" style="width: 50em;">加载更多</button>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                <hr>
+                <p>&copy;2005-2019 douban.com,all rights reserved 北京豆网科技有限公司</p>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script>
+        //用于跳转每个电影的页面
+        function getMovie() {
+            alert(1);
+        }
+
+        //通过网页URI获取每次查询要查询的个数，首次查询只查询20个，当点击查看更多的时候，每次点击增加20个
+        var i = getParameter("number");
+        if(i == null){
+            i = 1;
+        }
+
+        //为所有地区的下拉框设置文本内容，每次点击一个li标签的时候，都会更改，内容由传入的参数决定，
+        //设置完毕之后，重新查询，查询个数为当前通过当前URI获取的每次要查询的个数
+        function  setRegion(text) {
+            $("#region").html(text);
+            search(i*20);
+        }
+        //为所有类型的下拉框设置文本内容，每次点击一个li标签的时候，都会更改，内容由传入的参数决定
+        //设置完毕之后，重新查询，查询个数为当前通过当前URI获取的每次要查询的个数
+        function  setCategory(text) {
+            $("#category").html(text);
+            search(i*20);
+        }
+        //为所有年份的下拉框设置文本内容，每次点击一个li标签的时候，都会更改，内容由传入的参数决定
+        //设置完毕之后，重新查询，查询个数为当前通过当前URI获取的每次要查询的个数
+        function setYear(text) {
+            $("#year").html(text);
+            search(i*20);
+        }
+        //为所有形式的下拉框设置文本内容，每次点击一个li标签的时候，都会更改，内容由传入的参数决定
+        //设置完毕之后，重新查询，查询个数为当前通过当前URI获取的每次要查询的个数
+        function setForm(text) {
+            $("#form").html(text);
+            search(i*20);
+        }
+        //搜索函数，传入要搜索的个数，由此个数来决定页面显示的电影个数
+        //设置完毕之后，重新查询，查询个数为当前通过当前URI获取的每次要查询的个数
+        function search(number) {
+            //通过网页uri获取全部形式的下拉框的文本内容，如果为空，为第一次进入页面，此时设置为默认值
+            var form = getParameter("form");
+            if(form == null){
+                form = $("#form").text();
+            }
+            //通过网页uri获取全部地区的下拉框的文本内容，如果为空，为第一次进入页面，此时设置为默认值
+            var region = getParameter("region");
+            if(region == null){
+                region = $("#region").text();
+            }
+            //通过网页uri获取全部类型的下拉框的文本内容，如果为空，为第一次进入页面，此时设置为默认值
+            var category = getParameter("category");
+            if(category == null){
+                category = $("#category").text();
+            }
+            //通过网页uri获取全部年份的下拉框的文本内容，如果为空，为第一次进入页面，此时设置为默认值
+            var year = getParameter("year");
+            if(year == null){
+                year = $("#year").text();
+            }
+            //发送Ajax请求，每次切换每个下拉框的任意li标签时都会发送Ajax请求，传入参数为当前的所有下拉框的文本内容
+            $.post("movieCategoryServlet",{region:region,category:category,year:year,form:form},function (data) {
+                if(number>data.length){
+                    number = data.length;
+                }
+                $("#movies").html("");
+                var movies = $("#movies").html();
+                var trs = "";
+                //用来计算分几行，如果能够整除5，则为 number / 5,如果不能，则为number/5+1 因为要四舍五入
+                var num = number %5 ==0 ? Math.floor(number / 5): Math.floor(number / 5 +1);
+                for(var i = 0 ;i<num ; i++){
+                    var trs = "<tr class='col-md-10'>";
+                        var x = i * 5 +5;
+                        if(i == num-1){
+                            //当为最后一页时，有可能出现没有五个的情况，则遍历到number ,number为要查询的个数
+                            x = number;
+                        }
+                        //每循环一次添加五个
+                        for(var j = i*5 ; j< x ; j++ ){
+                            trs += '<td style="padding-right: 2em;">\n' +
+                                '                        <img src="'+data[j].movie_images+'" width="135px" height="189px" onclick="getMovie()" alt="">\n' +
+                                '                        <p align="center">'+data[j].movie_name+'  '+data[j].movie_grade+'分</p>\n' +
+                                '                    </td>';
+                        }
+                    trs += "</tr>";
+                    movies+=trs;
+                }
+                $("#movies").html(movies);
+            });
+        }
+        $(function () {
+            //当页面加载时需要重新设置一下每个下拉框的内容
+            var current_form = getParameter("form");
+            if(current_form == null){
+                current_form ="所有形式";
+            }
+            setForm(current_form);
+
+            var current_region = getParameter("region");
+            if(current_region == null){
+                current_region = "所有地区";
+            }
+            setRegion(current_region);
+
+            var current_category = getParameter("category");
+            if(current_category == null){
+                current_category = "所有类型";
+            }
+            setCategory(current_category);
+
+            var current_year = getParameter("year");
+            if(current_year == null){
+                current_year = "所有年代";
+            }
+            setYear(current_year);
+            search(i*20);
+            $("#more").click(function () {
+                var region1 = $("#region").text();
+                region1 = window.decodeURI(decodeURI(region1));
+                var category1 = $("#category").text();
+                category1 = window.decodeURI(decodeURI(category1));
+                var year1 = $("#year").text();
+                year1 = window.decodeURI(decodeURI(year1));
+                var form1 = $("#form").text();
+                form1 = window.decodeURI(decodeURI(form1));
+                location.href="movie_category.html?number="+(parseInt(i)+1)+"&region="+region1+"&category="+category1+"&year="+year1+"&form="+form1;
+            });
+        })
+    </script>
+</body>
+</html>
